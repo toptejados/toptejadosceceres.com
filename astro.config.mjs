@@ -2,7 +2,7 @@
 import { defineConfig } from 'astro/config';
 import preact from '@astrojs/preact';
 import tailwindcss from '@tailwindcss/vite';
-import vercel from '@astrojs/vercel';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,14 +15,11 @@ export default defineConfig({
   // one, so 'never' is the variant to keep. This setting only governs how Astro
   // matches routes — the 301 that collapses the other variant is issued in
   // src/middleware.ts, so both layers agree instead of one of them 200ing.
-  // Deliberately not repeated in vercel.json: @astrojs/vercel already emits the
-  // host-layer redirect from this setting, as the first route in
-  // .vercel/output/config.json (^/(.*)/$ -> /$1, 308). Declaring it there too
-  // would be a second mechanism aiming at the same thing, and the two can
-  // drift. That note used to live in vercel.json under a "//trailingSlash" key,
-  // which Vercel's schema rejects as an unknown property and which failed the
-  // deploy. Verify after a build with:
-  //   node -e "console.log(require('./.vercel/output/config.json').routes[0])"
+  // On Vercel this setting also produced a host-layer 308 (^/(.*)/$ -> /$1) in
+  // .vercel/output/config.json, ahead of the function. Cloudflare Workers has
+  // no equivalent config-emitted route, so the middleware redirect is now the
+  // ONLY thing collapsing the trailing-slash variant in production — do not
+  // remove it as redundant.
   trailingSlash: 'never',
 
   // No @astrojs/sitemap here on purpose. It builds a STATIC sitemap at build
@@ -62,5 +59,9 @@ export default defineConfig({
       }
     }
   },
-  adapter: vercel()
+  adapter: cloudflare({
+    // Wrangler's local Workers runtime during `astro dev`, so bindings and the
+    // vars in wrangler.jsonc resolve the same way they will in production.
+    platformProxy: { enabled: true }
+  })
 });
