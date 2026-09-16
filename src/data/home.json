@@ -1,0 +1,236 @@
+{
+  "hero": {
+    "titlePrefix": "Reparación, Impermeabilización y Rehabilitación de Tejados Profesionales",
+    "description": "El servicio más completo de instalación y reparación de tejados, con materiales de primera calidad y un equipo experimentado para proteger tu propiedad por años.",
+    "primaryLink": {
+      "text": "Pide Presupuesto",
+      "url": "/contacto"
+    },
+    "secondaryLink": {
+      "text": "Explorar nuestros Servicios",
+      "url": "/#services"
+    },
+    "image": {
+      "url": "/assets/home/home-section1.webp",
+      "alt": "Tejado principal",
+      "width": "980",
+      "height": "458"
+    },
+    "stats": [
+      { "value": 15, "prefix": "", "label": "Años de experiencia profesional" },
+      { "value": 10, "prefix": "", "label": "Años de garantía en materiales" },
+      { "value": 500, "prefix": "+", "label": "Proyectos completados con éxito" }
+    ]
+  },
+  "services": {
+    "subtitle": "Nuestro Servicio",
+    "title": "Personalizado a tus necesidades. Contáctanos para conocer nuestros servicios de tejados.",
+    "image": {
+      "url": "/assets/home/home-section2.webp",
+      "alt": "Servicios de Tejados",
+      "width": "369",
+      "height": "377"
+    },
+    "list": [
+      { "name": "Construcción de Tejados de Pizarra", "url": "/construccion-de-tejados-de-pizarra" },
+      { "name": "Reparación de Tejados y Goteras", "url": "/reparacion-de-tejados-y-cubiertas" },
+      { "name": "Instalación de Onduline Bajo Teja", "url": "/instalacion-de-onduline-bajo-teja" },
+      { "name": "Mantenimiento, Limpieza de Tejados y Canalones", "url": "/mantenimiento-y-limpieza-de-tejados-y-canalones" },
+      { "name": "Aislamiento de Cubiertas", "url": "/aislamiento-termico-y-acustico" },
+      { "name": "Reparación de Pizarra", "url": "/reparacion-de-goteras" },
+      { "name": "Estructuras de Tejado y Panel Sandwich", "url": "/instalacion-tejados-panel-sandwich" }
+    ]
+  },
+  "projects": {
+    "subtitle": "Proyectos Recientes",
+    "title": "Explora nuestros proyectos recientes",
+    "link": {
+      "text": "Ver todo →",
+      "url": "/proyectos"
+    },
+    "list": [
+      {
+        "title": "Rehabilitación de Tejado con Pizarra natural en Edificio Histórico",
+        "description": "Trabajo realizado con la máxima calidad y garantía, asegurando la impermeabilización total del inmueble.",
+        "url": "/proyectos/1",
+        "image": {
+          "url": "/assets/home/home-section3.webp",
+          "alt": "Proyecto 1"
+        }
+      },
+      {
+        "title": "Sustitución de Tejas y Aislamiento Térmico en Vivienda Unifamiliar",
+        "description": "Trabajo realizado con la máxima calidad y garantía, asegurando la impermeabilización total del inmueble.",
+        "url": "/proyectos/2",
+        "image": {
+          "url": "/assets/home/home-section3.webp",
+          "alt": "Proyecto 2"
+        }
+      },
+      {
+        "title": "Instalación de Sistema Drenaje Pluvial y Reparación de Canalones",
+        "description": "Trabajo realizado con la máxima calidad y garantía, asegurando la impermeabilización total del inmueble.",
+        "url": "/proyectos/3",
+        "image": {
+          "url": "/assets/home/home-section3.webp",
+          "alt": "Proyecto 3"
+        }
+      }
+    ]
+  },
+  "testimonials": {
+    "subtitle": "Testimonios",
+    "title": "Experiencias de nuestros clientes",
+    "list": [
+      {
+        "text": "\"Excelente trabajo. Repararon la gotera en menos de 24 horas y el precio fue muy razonable. Totalmente recomendable.\"",
+        "name": "María García",
+        "role": "Cliente particular",
+        "rating": 5
+      },
+      {
+        "text": "\"Profesionales de primera categoría. Cambiaron todo el tejado del edificio en tiempo récord y con un acabado perfecto.\"",
+        "name": "Carlos Ruiz",
+        "role": "Comunidad de vecinos",
+        "rating": 5
+      }
+    ]
+  },
+  "whyChooseUs": {
+    "subtitle": "Razones para elegirnos",
+    "title": "Descubre por qué somos la elección preferida de nuestros clientes",
+    "cards": [
+      {
+        "title": "Experiencia y Profesionalismo",
+        "description": "Más de 15 años en el sector, ofreciendo servicios de alta calidad en",
+        "hasSiteSuffix": true,
+        "link": {
+          "text": "Explora Nuestros Servicios",
+          "url": "/#services"
+        },
+        "image": {
+          "url": "/assets/contact/card1.webp",
+          "alt": "Timeline",
+          "width": "370",
+          "height": "416"
+        }
+      },
+      {
+        "title": "Materiales de Alta Calidad",
+        "description": "Utilizamos solo los mejores materiales para garantizar la durabilidad y eficiencia de nuestros proyectos.",
+        "image": {
+          "url": "/assets/contact/card2.webp",
+          "alt": "Sello de Calidad",
+          "width": "360",
+          "height": "360"
+        }
+      },
+      {
+        "title": "Atención al Cliente",
+        "description": "Nos enorgullecemos de ofrecer un servicio al cliente excepcional, con una comunicación clara y transparente.",
+        "image": {
+          "url": "/assets/contact/card3.webp",
+          "alt": "Atención al Cliente",
+          "width": "577",
+          "height": "282"
+        }
+      },
+      {
+        "title": "Soluciones Personalizadas",
+        "description": "Nos adaptamos a las necesidades y presupuesto de cada cliente, asegurando resultados que cumplen expectativas.",
+        "image": {
+          "url": "/assets/contact/card4.webp",
+          "alt": "Soluciones",
+          "width": "490",
+          "height": "271"
+        }
+      },
+      {
+        "title": "Garantía de Satisfacción",
+        "description": "Todos nuestros trabajos están garantizados, brindando tranquilidad y confianza a nuestros clientes.",
+        "image": {
+          "url": "/assets/contact/card5.webp",
+          "alt": "Garantía",
+          "width": "489",
+          "height": "227"
+        }
+      }
+    ]
+  },
+  "blog": {
+    "subtitle": "Blog",
+    "title": "Explora nuestros blogs recientes",
+    "link": {
+      "text": "Ver todo →",
+      "url": "/blog"
+    },
+    "featured": {
+      "title": "Mantenimiento Preventivo: Adelántate a las Filtraciones en tu Hogar",
+      "description": "Una guía completa sobre cómo inspeccionar visualmente tu tejado para detectar y prevenir problemas de humedad antes de las lluvias.",
+      "date": "12 Marzo 2026",
+      "url": "/blog/mantenimiento-preventivo",
+      "image": {
+        "url": "/assets/home/home-blog1.webp",
+        "alt": "Blog",
+        "width": "543",
+        "height": "475"
+      }
+    },
+    "articles": [
+      {
+        "title": "¿Cuándo es el momento ideal para renovar el tejado completo?",
+        "description": "¿Cuándo es el momento ideal para renovar el tejado completo?",
+        "date": "5 Mar 2026",
+        "url": "/blog/renovar-tejado",
+        "image": {
+          "url": "/assets/home/home-blog2.webp",
+          "alt": "Blog post 1"
+        }
+      },
+      {
+        "title": "Los mejores materiales aislantes para buhardillas en Toledo",
+        "description": "Los mejores materiales aislantes para buhardillas en Toledo",
+        "date": "28 Feb 2026",
+        "url": "/blog/materiales-aislantes",
+        "image": {
+          "url": "/assets/home/home-blog2.webp",
+          "alt": "Blog post 2"
+        }
+      },
+      {
+        "title": "Cómo limpiar los canalones en otoño de manera segura y eficaz",
+        "description": "Cómo limpiar los canalones en otoño de manera segura y eficaz",
+        "date": "15 Feb 2026",
+        "url": "/blog/limpiar-canalones",
+        "image": {
+          "url": "/assets/home/home-blog2.webp",
+          "alt": "Blog post 3"
+        }
+      }
+    ]
+  },
+  "cta": {
+    "title": "Contáctanos para un Presupuesto Gratuito",
+    "description": "Déjanos tus datos y nos pondremos en contacto contigo lo antes posible para evaluar tu necesidad sin compromiso.",
+    "images": [
+      {
+        "url": "assets/home/home-last1.webp",
+        "alt": "Customer 1",
+        "width": "105",
+        "height": "105"
+      },
+      {
+        "url": "assets/home/home-last2.webp",
+        "alt": "Customer 2",
+        "width": "105",
+        "height": "105"
+      },
+      {
+        "url": "assets/home/home-last3.webp",
+        "alt": "Customer 3",
+        "width": "105",
+        "height": "105"
+      }
+    ]
+  }
+}

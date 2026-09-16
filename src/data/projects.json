@@ -1,0 +1,104 @@
+{
+  "pageTitle": "Proyectos",
+  "detailPage": {
+    "backButton": "← Volver a proyectos"
+  },
+  "cta": {
+    "title": "¿Te interesa un proyecto similar?",
+    "subtitle": "Solicita un presupuesto gratuito y sin compromiso",
+    "buttonText": "Solicitar Presupuesto",
+    "buttonLink": "/contacto"
+  },
+  "projects": [
+    {
+      "id": 1,
+      "slug": "arreglo-aleros-jerez",
+      "category": "Impermeabilización",
+      "title": "Arreglo de Aleros – Jerez de la Frontera",
+      "location": "Jerez de la Frontera",
+      "date": "April, 20 2025",
+      "coverImg": "/assets/projects/impermeabilizacion-d1.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "La reparación de aleros en Jerez de la Frontera se enfocó en restaurar y fortalecer estas estructuras clave que protegen"
+    },
+    {
+      "id": 2,
+      "slug": "arreglo-terraza-jerez",
+      "category": "Restauración",
+      "title": "Arreglo Terraza – Jerez de la Frontera",
+      "location": "Jerez de la Frontera",
+      "date": "March, 10 2025",
+      "coverImg": "/assets/projects/impermeabilizacion-d2.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "La reparación de la terraza en Jerez de la Frontera se llevó a cabo con el objetivo de mejorar su"
+    },
+    {
+      "id": 3,
+      "slug": "impermeabilizacion-remates-jerez",
+      "category": "Canalones",
+      "title": "Impermeabilización de Remates – Jerez de la Frontera",
+      "location": "Jerez de la Frontera",
+      "date": "February, 5 2025",
+      "coverImg": "/assets/projects/impermeabilizacion-d3.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "El trabajo de Impermeabilización de Remates en Jerez de la Frontera abordó las áreas más vulnerables del tejado, como uniones"
+    },
+    {
+      "id": 4,
+      "slug": "cubierta-pizarra-aranda",
+      "category": "Pizarra",
+      "title": "Cubierta Inclinada de Pizarra Natural en Aranda de Duero",
+      "location": "Aranda de Duero, Burgos",
+      "date": "January, 15 2025",
+      "coverImg": "/assets/projects/pizarra.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "La ejecución de esta cubierta inclinada de pizarra natural en Aranda de Duero representa uno de nuestros trabajos más destacados del año. La vivienda unifamiliar de nueva planta requería una solución de cubierta que combinara tradición, elegancia y máxima eficiencia técnica frente al clima castellano.\n\nLa pizarra natural seleccionada procede de canteras certificadas del noroeste peninsular, garantizando su autenticidad geológica y sus propiedades físicas óptimas: impermeabilidad natural, resistencia a las heladas y excelente comportamiento térmico. El sistema de instalación se realizó mediante fijación directa con ganchos de acero inoxidable.\n\nEl diseño de la cubierta contempla una pendiente del 38%, optimizada para maximizar la evacuación de agua y nieve, con encuentros en cumbrera y lima acabados con piezas de pizarra maciza. La ventilación bajo cubierta fue incorporada siguiendo las mejores prácticas del sector.\n\nEl resultado final armoniza perfectamente con el entorno natural de la comarca, y la propiedad ha obtenido una cubierta de altísima calidad que se convertirá en referencia en la zona."
+    },
+    {
+      "id": 5,
+      "slug": "reparacion-goteras-comunidad-vecinos",
+      "category": "Reparación",
+      "title": "Reparación Urgente de Goteras en Comunidad de Vecinos",
+      "location": "Burgos Capital, Burgos",
+      "date": "December, 3 2024",
+      "coverImg": "/assets/projects/goteras.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "Esta intervención urgente en una comunidad de vecinos del centro de Burgos fue solicitada tras fuertes lluvias que revelaron múltiples puntos de filtración en la cubierta plana del edificio. Nuestra brigada de emergencias se personó en menos de 4 horas desde la llamada para evaluar los daños y proponer una solución inmediata.\n\nEl diagnóstico reveló el agotamiento de la lámina impermeabilizante original, instalada más de 20 años atrás y sin mantenimiento posterior. Los puntos críticos se localizaban en los encuentros con los antepechos perimetrales, los lucernarios y las salidas de instalaciones.\n\nLa actuación de urgencia consistió en la aplicación de una membrana de poliurea en espray sobre las zonas afectadas, resellado de todos los encuentros y sustitución de los baberos y pletinas deterioradas. En una segunda fase se planificó la renovación completa de la cubierta.\n\nLa velocidad de respuesta y la efectividad de la reparación generaron una valoración muy positiva por parte de la comunidad, que confió en nosotros también para el proyecto integral de renovación."
+    },
+    {
+      "id": 6,
+      "slug": "aislamiento-termico-chalet",
+      "category": "Aislamiento",
+      "title": "Aislamiento Térmico de Cubierta en Chalet Unifamiliar",
+      "location": "Villarcayo, Burgos",
+      "date": "November, 20 2024",
+      "coverImg": "/assets/projects/aislamiento.webp",
+      "images": [
+        "/assets/projects/impermeabilizacion-d1.webp",
+        "/assets/projects/impermeabilizacion-d2.webp",
+        "/assets/projects/impermeabilizacion-d3.webp"
+      ],
+      "description": "En este proyecto de Villarcayo, localidad situada a más de 900 metros de altitud y sometida a duras condiciones climáticas en invierno, el cliente solicitó la mejora del aislamiento térmico de su cubierta inclinada para reducir el consumo energético de calefacción y mejorar el confort interior.\n\nLa solución técnica adoptada combinó la proyección de espuma de poliuretano de celda cerrada por el interior del faldón de cubierta, con un espesor de 8 cm, con la instalación de un panel rígido de lana de roca en los espacios bajo teja accesibles. Esta solución bicapa garantiza tanto el aislamiento como el control de la humedad intersticial.\n\nLos resultados tras la primera temporada invernal confirmaron una reducción de más del 35% en el consumo de gasoil de calefacción, lo que supuso un ahorro económico significativo para la familia propietaria.\n\nEl proyecto recibió el certificado de eficiencia energética mejorada en la categoría D, habiendo partido de una calificación G, lo que también supone un incremento notable en el valor catastral y de mercado del inmueble."
+    }
+  ]
+}

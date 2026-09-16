@@ -1,0 +1,212 @@
+{
+  "data": {
+    "attributes": {
+      "site": "tarragona",
+      "meta": {
+        "titleTemplate": "%s | Top Tejados Tarragona",
+        "defaultTitle": "Top Tejados Tarragona | Especialistas en Tejados y Cubiertas",
+        "description": "Especialistas en instalación y reparación de tejados en Tarragona. Servicios profesionales de impermeabilización, mantenimiento y construcción de cubiertas.",
+        "keywords": "tejados Tarragona, reparación tejados, instalación tejados, impermeabilización, cubiertas, canalones, tejados pizarra, mantenimiento tejados",
+        "robots": "index, follow",
+        "author": "Top Tejados",
+        "publisher": "Top Tejados",
+        "language": "es",
+        "locale": "es_ES",
+        "canonical": "https://www.toptejadostarragona.com"
+      },
+      "openGraph": {
+        "type": "website",
+        "siteName": "Top Tejados Tarragona",
+        "locale": "es_ES",
+        "image": {
+          "url": "/assets/og-image.webp",
+          "width": 1200,
+          "height": 630,
+          "alt": "Top Tejados Tarragona - Especialistas en Tejados y Cubiertas"
+        }
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "site": "@TopTejados",
+        "creator": "@TopTejados",
+        "image": "/assets/og-image.webp",
+        "imageAlt": "Top Tejados Tarragona"
+      },
+      "structuredData": {
+        "type": "LocalBusiness",
+        "name": "Top Tejados Tarragona",
+        "description": "Especialistas en reparación e instalación de tejados en Tarragona",
+        "url": "https://www.toptejadostarragona.com",
+        "telephone": "+34 123 456 789",
+        "email": "contacto@toptejadostarragona.com",
+        "priceRange": "€€",
+        "address": {
+          "streetAddress": "",
+          "addressLocality": "Tarragona",
+          "addressRegion": "Cataluña",
+          "postalCode": "",
+          "addressCountry": "ES"
+        },
+        "geo": {
+          "latitude": "41.118883",
+          "longitude": "1.244491"
+        },
+        "openingHours": [
+          "Mo-Fr 08:00-18:00",
+          "Sa 09:00-13:00"
+        ],
+        "image": "/assets/og-image.webp",
+        "logo": "/assets/logo.webp",
+        "sameAs": [
+          "https://www.facebook.com/toptejadostarragona",
+          "https://www.linkedin.com/company/toptejadostarragona"
+        ]
+      },
+      "altTexts": {
+        "logo": "Logo Top Tejados Tarragona",
+        "heroBanner": "Reparación e instalación de tejados en Tarragona",
+        "trustTeam": "Equipo de profesionales de Top Tejados Tarragona",
+        "banners": [
+          "Reparación de tejado en Tarragona",
+          "Profesional trabajando en tejado metálico",
+          "Tejas cerámicas preparadas para instalación"
+        ],
+        "brands": {
+          "mapei": "Mapei - Material para tejados",
+          "bmiMonier": "BMI Monier - Fabricante de tejas",
+          "fakro": "Fakro - Ventanas de tejado",
+          "cobert": "Cobert - Materiales de cubierta",
+          "roofAssured": "Roof Assured - Garantía de tejados",
+          "sika": "Sika - Impermeabilización profesional"
+        }
+      },
+      "pages": {
+        "home": {
+          "title": "Top Tejados Tarragona | Especialistas en Tejados y Cubiertas",
+          "description": "Especialistas en instalación y reparación de tejados en Tarragona. Más de 15 años de experiencia en impermeabilización, mantenimiento y construcción de cubiertas.",
+          "keywords": "tejados Tarragona, reparación tejados Tarragona, instalación tejados Tarragona, impermeabilización Tarragona"
+        },
+        "contact": {
+          "title": "Contacto | Top Tejados Tarragona",
+          "description": "Contacta con nuestro equipo de especialistas en tejados en Tarragona. Solicita un presupuesto gratuito sin compromiso.",
+          "keywords": "contacto tejados Tarragona, presupuesto tejados Tarragona, teléfono tejados Tarragona"
+        },
+        "blog": {
+          "title": "Blog | Top Tejados Tarragona - Consejos y Noticias",
+          "description": "Artículos, consejos y noticias sobre reparación, instalación y mantenimiento de tejados en Tarragona.",
+          "keywords": "blog tejados Tarragona, consejos tejados, noticias cubiertas"
+        },
+        "projects": {
+          "title": "Proyectos | Top Tejados Tarragona - Obras Realizadas",
+          "description": "Galería de proyectos de reparación e instalación de tejados realizados en Tarragona y alrededores.",
+          "keywords": "proyectos tejados Tarragona, obras cubiertas, trabajos realizados tejados"
+        }
+      },
+      "keywordsToLandings": [
+        {
+          "keyword": "Construccion de Tejados de Pizarra",
+          "landing": "/construccion-de-tejados-de-pizarra",
+          "searchVolume": "high",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Construccion de Tejados y Cubiertas",
+          "landing": "/construccion-de-tejados-y-cubiertas",
+          "searchVolume": "high",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Instalacion de Onduline Bajo Teja",
+          "landing": "/instalacion-de-onduline-bajo-teja",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Instalacion Tejados Panel Sandwich",
+          "landing": "/instalacion-tejados-panel-sandwich",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Instalacion y Reparacion de Claraboyas",
+          "landing": "/instalacion-y-reparacion-de-claraboyas",
+          "searchVolume": "low",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Reparacion de Tejados y Cubiertas",
+          "landing": "/reparacion-de-tejados-y-cubiertas",
+          "searchVolume": "high",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Instalacion de Canalones",
+          "landing": "/instalacion-de-canalones",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Mantenimiento y Limpieza de Tejados y Canalones",
+          "landing": "/mantenimiento-y-limpieza-de-tejados-y-canalones",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Aislamiento Termico y Acustico",
+          "landing": "/aislamiento-termico-y-acustico",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Impermeabilizaciones",
+          "landing": "/impermeabilizaciones",
+          "searchVolume": "high",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Reparacion de Goteras",
+          "landing": "/reparacion-de-goteras",
+          "searchVolume": "high",
+          "intent": "transactional"
+        },
+        {
+          "keyword": "Reparacion de Humedades",
+          "landing": "/reparacion-de-humedades",
+          "searchVolume": "medium",
+          "intent": "transactional"
+        },
+        {
+          "keyword": "Instalacion y Reparacion de Ventanas Velux",
+          "landing": "/instalacion-y-reparacion-de-ventanas-velux",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Reformas Integrales",
+          "landing": "/reformas-integrales",
+          "searchVolume": "high",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Rehabilitacion de Fachadas",
+          "landing": "/rehabilitacion-de-fachadas",
+          "searchVolume": "medium",
+          "intent": "commercial"
+        },
+        {
+          "keyword": "Retirada de Amianto Uralita",
+          "landing": "/retirada-de-amianto-uralita",
+          "searchVolume": "medium",
+          "intent": "transactional"
+        },
+        {
+          "keyword": "Trabajos Verticales",
+          "landing": "/trabajos-verticales",
+          "searchVolume": "low",
+          "intent": "commercial"
+        }
+      ]
+    }
+  },
+  "meta": {}
+}

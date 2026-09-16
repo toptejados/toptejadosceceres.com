@@ -1,0 +1,98 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.jsx";
+import ServicePageContent from "../components/ServicePageContent.jsx";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import {
+  getServices,
+  getAnalyticContacts,
+  getMenu,
+  STRAPI_URL,
+} from "../lib/strapi.js";
+
+const { slug } = Astro.params;
+
+Astro.response.headers.set(
+  "Cache-Control",
+  "public, max-age=60, s-maxage=300, stale-while-revalidate=600",
+);
+
+let services = [];
+let contactData = null;
+let menuData = null;
+
+try {
+  [services, contactData, menuData] = await Promise.all([
+    getServices().catch((e) => {
+      console.error("Strapi unavailable for services:", e);
+      return [];
+    }),
+    getAnalyticContacts().catch((e) => {
+      console.error("Error fetching contact data:", e);
+      return null;
+    }),
+    getMenu().catch((e) => {
+      console.error("Error fetching menu data:", e);
+      return null;
+    }),
+  ]);
+} catch (e) {
+  console.error("Error in parallel fetch:", e);
+}
+
+const service = services.find((s) => s.slug === slug);
+
+if (!service) {
+  return Astro.rewrite("/404");
+}
+
+const siteSlug = String(
+  contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? "madrid",
+);
+const site = siteSlug
+  .split("-")
+  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+  .join(" ");
+const phone =
+  contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? "+34 123 456 789";
+const email =
+  contactData?.email ??
+  import.meta.env.PUBLIC_EMAIL ??
+  `contacto@tejados${siteSlug}.es`;
+const waLink = contactData?.waLink;
+const socials = contactData?.socials;
+
+const pageTitle = (service.pageTitle ?? "").replace("{site}", site);
+const breadcrumbs = [
+  { name: "Inicio", url: "/" },
+  { name: pageTitle, url: `/${slug}` },
+];
+---
+
+<BaseLayout
+  title={pageTitle}
+  site={site}
+  phone={phone}
+  email={email}
+  jsonLd={service.jsonLd}
+  breadcrumbs={breadcrumbs}
+>
+  <Navbar
+    client:load
+    site={site}
+    phone={phone}
+    email={email}
+    waLink={waLink}
+    socials={socials}
+    data={menuData}
+  />
+  <Breadcrumbs items={breadcrumbs} class="border-b border-slate-100 bg-white pt-[72px] md:pt-[88px]" />
+  <main>
+    <ServicePageContent
+      client:idle
+      site={site}
+      strapiUrl={STRAPI_URL}
+      data={service}
+    />
+  </main>
+</BaseLayout>

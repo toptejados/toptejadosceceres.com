@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Navbar from '../../components/Navbar.jsx'
+import ServicePageContent from '../../components/ServicePageContent.jsx'
+import { getServiceBySlugAndCity, getServiceCities, getAnalyticContacts, getMenu, getZonas, STRAPI_URL } from '../../lib/strapi.js'
+import { withSite, formatSiteName } from '../../lib/site.js'
+import { buildService, buildFaqPage } from '../../lib/schema.js'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+
+const { service: serviceSlug, city } = Astro.params;
+
+Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=600");
+
+let service = null
+let contactData = null
+let menuData = null
+let serviceCities = []
+let zonasData = []
+
+try {
+  [service, serviceCities, contactData, menuData, zonasData] = await Promise.all([
+    getServiceBySlugAndCity(serviceSlug, city).catch(e => {
+      console.error('Strapi unavailable for service:', e)
+      return null
+    }),
+    getServiceCities(serviceSlug).catch(e => {
+      console.error('Error fetching service cities:', e)
+      return []
+    }),
+    getAnalyticContacts().catch(e => {
+      console.error('Error fetching contact data:', e)
+      return null
+    }),
+    getMenu().catch(e => {
+      console.error('Error fetching menu data:', e)
+      return null
+    }),
+    getZonas().catch(e => {
+      console.error('Error fetching zonas:', e)
+      return []
+    })
+  ])
+} catch (e) {
+  console.error('Error in parallel fetch:', e)
+}
+
+// "Más Ubicaciones" — auto-derived from this site's real zonas (small towns),
+// never from copy-pasted CMS text. Excludes the current city and any town that
+// already has its own dedicated service page (shown as a pill above). Empty
+// until real zonas exist for this site — no hardcoded fallback city names.
+const currentSiteSlug = String(import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid').toLowerCase()
+const dedicatedCities = new Set((serviceCities ?? []).map(c => String(c).toLowerCase()))
+const otherZonas = (zonasData ?? [])
+  .filter(z => z.city && String(z.city).toLowerCase() !== String(city).toLowerCase())
+  .filter(z => !dedicatedCities.has(String(z.city).toLowerCase()))
+  .map(z => ({
+    city: z.city,
+    href: `/zonas/${String(z.slug ?? '').replace(`${currentSiteSlug}-`, '')}`,
+  }))
+
+if (!service) {
+  return Astro.rewrite('/404')
+}
+
+const formatCityName = (str) => {
+  if (!str) return '';
+  return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+}
+
+const site = formatCityName(city);
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '+34 123 456 789'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${city}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+
+// withSite, not a bare .replace: the CMS title can mention the city more than
+// once, and a single-argument String.replace only ever substitutes the first
+// occurrence — which is how a literal "{site}" ended up in <title> tags.
+const pageTitle = service.metaTitle ?? withSite(service.pageTitle, site);
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: pageTitle, url: `/${serviceSlug}/${city}` },
+];
+
+const STRAPI = import.meta.env.STRAPI_URL || 'https://strapi.digiagency.net';
+const toAbsolute = (u) => (!u ? undefined : u.startsWith('http') ? u : `${STRAPI}${u}`);
+
+// og:image, with the hero as a fallback.
+//
+// Only a handful of service entries fill the dedicated `ogImage` field, so most
+// of these pages shipped no og:image at all — which is also why twitter:card
+// was degrading to "summary" (BaseLayout picks summary_large_image only when it
+// has an image). Every one of these pages has a hero image already; using it
+// means a shared link shows the service rather than a bare text card.
+const ogImageUrl =
+  toAbsolute(service.ogImage?.url)
+  ?? toAbsolute(service.hero?.images?.[0]?.url)
+  ?? undefined;
+
+// Page-level structured data, alongside the organisation @graph that
+// BaseLayout merges in from Strapi.
+const serviceSchema = buildService({
+  name: withSite(service.pageTitle, site) || pageTitle,
+  description: service.metaDescription || undefined,
+  serviceSlug,
+  city,
+  cityLabel: site,
+  base: Astro.url.origin,
+  providerName: `Top Tejados ${formatSiteName(import.meta.env.PUBLIC_SITE_SLUG || 'cantabria')}`,
+  image: ogImageUrl,
+  // No price passed on purpose — see the note in lib/schema.js. The only
+  // figures available are prose inside marketing copy, and the ones in this
+  // repo are the figures flagged as not defensible.
+});
+
+// The six Q&As already rendered by the FAQ accordion on this page.
+const faqSchema = buildFaqPage(service.faqSection, site);
+
+const pageSchemas = [service.jsonLd, serviceSchema, faqSchema].filter(Boolean);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={service.metaDescription || undefined}
+  keywords={service.metaKeywords || undefined}
+  canonicalUrl={service.canonicalUrl || undefined}
+  ogTitle={service.ogTitle || undefined}
+  ogDescription={service.ogDescription || undefined}
+  ogImage={ogImageUrl}
+  site={site}
+  phone={phone}
+  email={email}
+  jsonLd={pageSchemas}
+  breadcrumbs={breadcrumbs}
+>
+  <Navbar client:load site={site} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+  <Breadcrumbs items={breadcrumbs} class="border-b border-slate-100 bg-white pt-[72px] md:pt-[88px]" />
+  <main>
+    <ServicePageContent client:idle site={site} strapiUrl={STRAPI_URL} data={service} serviceCities={serviceCities} zonas={otherZonas} contact={contactData} />
+  </main>
+</BaseLayout>

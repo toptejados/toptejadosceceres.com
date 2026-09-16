@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Navbar from '../../components/Navbar.jsx'
+import ZonasPageContent from '../../components/ZonasPageContent.jsx'
+import Breadcrumbs from '../../components/Breadcrumbs.astro'
+import { buildFaqPage } from '../../lib/schema.js'
+import { getAnalyticContacts, getZonas, getMenu, getProjects, getHomePage, getBlogs, STRAPI_URL } from '../../lib/strapi.js'
+
+const { slug } = Astro.params;
+
+// Fetch all zonas live from Strapi on every request
+let zonasData = []
+try {
+  zonasData = await getZonas()
+} catch (error) {
+  console.error('Error fetching zonas from Strapi:', error)
+}
+
+// Get the current site identifier from the environment (e.g. "barca" or "madrid")
+const currentSite = String(import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid').toLowerCase();
+
+// Find zone by site-prefixed slug first (e.g., "barca-estella-del-marques"), falling back to plain slug
+const zona = zonasData.find(z => z.slug === `${currentSite}-${slug}` || z.slug === slug)
+
+// Return 404 if slug not found
+if (!zona) {
+  return Astro.rewrite('/404')
+}
+
+// Service-area roster for this site's "areas we serve" map section —
+// auto-derived from real zonas data, self included (it's a coverage list,
+// not a "other locations" nav). No CMS-authored city list: a new zona
+// appears here automatically, on every zona page including its own.
+const otherZonas = (zonasData ?? [])
+  .filter(z => z.city)
+  .map(z => ({
+    city: z.city,
+    href: `/zonas/${String(z.slug ?? '').replace(`${currentSite}-`, '')}`,
+  }))
+
+let contactData = null
+let menuData = null
+let allProjects = []
+let homeData = null
+let blogsData = []
+
+try {
+  ;[contactData, menuData, allProjects, homeData, blogsData] = await Promise.all([
+    getAnalyticContacts(),
+    getMenu(),
+    getProjects(),
+    getHomePage(),
+    getBlogs(),
+  ])
+} catch (error) {
+  console.error('Error fetching data:', error)
+}
+
+const site = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'Madrid')
+const recentBlogs = blogsData.slice(0, 4).map(p => ({
+  title: p.title,
+  excerpt: p.excerpt || '',
+  date: p.date,
+  url: `/blog/${(p.slug || '').replace(`${currentSite}-`, '')}`,
+  image: p.coverImg ? { url: p.coverImg, alt: p.title, width: p.coverImgWidth, height: p.coverImgHeight } : null,
+}))
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '+34 123 456 789'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${site}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+
+const pageTitle = zona.metaTitle || `${zona.hero?.title ?? zona.city} | Especialistas`;
+
+// og:image falls back to the zona hero. Few zona entries fill the dedicated
+// ogImage field, so most of these pages shipped no og:image — which is also
+// what made BaseLayout emit twitter:card "summary" instead of
+// summary_large_image.
+const ogImageUrl = zona.ogImage?.url ?? zona.hero?.image ?? undefined;
+
+// No "Zonas" crumb: there is no /zonas index page — it returns 404. It was
+// listed here anyway, so every zona page rendered a BreadcrumbList (and, now,
+// a visible trail) advertising a broken URL as part of the site hierarchy.
+// Add the crumb back if and when an index page exists.
+const breadcrumbs = [
+  { name: 'Inicio', url: '/' },
+  { name: zona.city || slug, url: `/zonas/${slug}` },
+];
+
+// The zona FAQ accordion's Q&As, already rendered on the page.
+const faqSchema = buildFaqPage(zona.faqSection, zona.city || site);
+const pageSchemas = [zona.jsonLd, faqSchema].filter(Boolean);
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={zona.metaDescription || undefined}
+  keywords={zona.metaKeywords || undefined}
+  canonicalUrl={zona.canonicalUrl || undefined}
+  ogTitle={zona.ogTitle || undefined}
+  ogDescription={zona.ogDescription || undefined}
+  ogImage={ogImageUrl}
+  site={site}
+  phone={phone}
+  email={email}
+  jsonLd={pageSchemas}
+  breadcrumbs={breadcrumbs}
+>
+  <Navbar client:load site={site} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+  <Breadcrumbs items={breadcrumbs} class="border-b border-slate-100 bg-white pt-[72px] md:pt-[88px]" />
+  <main>
+    <ZonasPageContent client:idle site={site} data={zona} recentProjects={allProjects.slice(0, 3)} homeWhyChooseUs={homeData?.whyChooseUs} apiUrl={STRAPI_URL} recentBlogs={recentBlogs} contact={contactData} otherZonas={otherZonas} />
+  </main>
+</BaseLayout>

@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.jsx'
+import LegalContent from '../components/LegalContent.jsx'
+import { getAnalyticContacts, getMenu, getLegalPage } from '../lib/strapi.js'
+import { formatSiteName } from '../lib/site.js'
+
+let contactData = null
+let menuData = null
+let legalData = null
+
+try {
+  contactData = await getAnalyticContacts()
+  menuData = await getMenu()
+  legalData = await getLegalPage('cookies')
+} catch (error) {
+  console.error('Error fetching cookies page data:', error)
+}
+
+const site = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid')
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '+34 123 456 789'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${site}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+
+const siteName = formatSiteName(site)
+const pageTitle = legalData?.metaTitle || `Política de Cookies - Top Tejados ${siteName}`
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={legalData?.metaDescription || undefined}
+  keywords={legalData?.metaKeywords || undefined}
+  canonicalUrl={legalData?.canonicalUrl || undefined}
+  ogTitle={legalData?.ogTitle || undefined}
+  ogDescription={legalData?.ogDescription || undefined}
+  ogImage={legalData?.ogImage || undefined}
+  jsonLd={legalData?.jsonLd || undefined}
+  site={site}
+  phone={phone}
+  email={email}
+>
+  <Navbar client:load site={site} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+  <main>
+    <LegalContent client:idle data={legalData} />
+  </main>
+</BaseLayout>

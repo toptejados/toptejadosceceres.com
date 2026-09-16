@@ -1,0 +1,45 @@
+{
+  "hero": {
+    "title": "Sobre Nosotros",
+    "subtitle": "Especialistas en tejados y cubiertas con más de 20 años de experiencia, brindando soluciones integrales de alta calidad y garantía.",
+    "image": "https://images.unsplash.com/photo-1541888086925-ebbc37624c9c?auto=format&w=1200&q=80"
+  },
+  "history": {
+    "title": "Nuestra Historia",
+    "text": "Comenzamos como una pequeña empresa local dedicada a la reparación de pequeños desperfectos en cubiertas. A lo largo de los años, nuestra dedicación por el trabajo bien hecho y el boca a boca de clientes satisfechos nos permitieron crecer y expandir nuestros servicios de forma exponencial.\n\nHoy en día, somos un equipo multidisciplinar de expertos capacitados en todo tipo de tejados, desde la teja árabe tradicional hasta las soluciones más modernas de impermeabilización continua y paneles sándwich. Nuestra misión es proteger lo que más importa: su hogar o negocio, garantizando la máxima durabilidad y eficiencia en cada proyecto.",
+    "image": "https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&w=800&q=80"
+  },
+  "stats": [
+    { "value": "20+", "label": "Años de Experiencia" },
+    { "value": "1500+", "label": "Proyectos Completados" },
+    { "value": "100%", "label": "Clientes Satisfechos" },
+    { "value": "10", "label": "Especialistas en Plantilla" }
+  ],
+  "values": {
+    "title": "Nuestros Valores",
+    "items": [
+      {
+        "title": "Calidad Sin Compromiso",
+        "description": "Utilizamos solo materiales de primera línea y técnicas de instalación avaladas por los fabricantes para garantizar durabilidad."
+      },
+      {
+        "title": "Transparencia Total",
+        "description": "Presupuestos claros, detallados y sin letras pequeñas ni sorpresas de última hora durante la ejecución de la obra."
+      },
+      {
+        "title": "Compromiso y Puntualidad",
+        "description": "Respetamos estrictamente los plazos acordados para minimizar las molestias en su vivienda o comunidad."
+      },
+      {
+        "title": "Garantía Profesional",
+        "description": "Todos nuestros trabajos están cubiertos por una garantía extendida, para su total tranquilidad a largo plazo."
+      }
+    ]
+  },
+  "cta": {
+    "title": "¿Listo para renovar su tejado?",
+    "subtitle": "Póngase en contacto con nosotros hoy mismo y solicite un diagnóstico y presupuesto gratuito y sin ningún compromiso.",
+    "button": "Contactar Ahora",
+    "url": "/contacto"
+  }
+}

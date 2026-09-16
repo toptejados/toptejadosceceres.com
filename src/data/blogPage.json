@@ -1,0 +1,32 @@
+{
+  "pageTitle": "Explora nuestros artículos",
+  "pageSubtitle": "Consejos, guías y novedades sobre tejados y cubiertas.",
+  "pageTag": "Blog",
+  "ui": {
+    "featuredLabel": "Destacado",
+    "readLabel": "Leer",
+    "readTimeLabel": "lectura",
+    "backButton": "Volver al Blog",
+    "shareLabel": "Compartir:",
+    "tocLabel": "Tabla de contenidos",
+    "emptyTitle": "Todavía no hay artículos publicados",
+    "emptyText": "Estamos preparando nuevos contenidos sobre tejados y cubiertas. Vuelve pronto."
+  },
+  "cta": {
+    "title": "Contáctanos para un Presupuesto Gratuito",
+    "images": [
+      "/assets/projects/pizarra.webp",
+      "/assets/projects/goteras.webp",
+      "/assets/projects/aislamiento.webp"
+    ],
+    "form": {
+      "nameLabel": "Nombre",
+      "emailLabel": "Correo Electrónico",
+      "phoneLabel": "Teléfono",
+      "messageLabel": "Mensaje",
+      "submitButton": "Enviar Mensaje",
+      "sendingButton": "Enviando…",
+      "successMessage": "¡Mensaje enviado con éxito!"
+    }
+  }
+}

@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.jsx'
+import ContactPage from '../components/ContactPage.jsx'
+import { SITE_SLUG, STRAPI_URL, getAnalyticContacts, getMenu, getContactPage, getZonas, getServiceCities } from '../lib/strapi.js'
+import { formatSiteName } from '../lib/site.js'
+
+Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=600");
+
+let contactData = null
+let menuData = null
+let contactPageData = null
+let zonasData = []
+let serviceCities = []
+
+try {
+  [contactData, menuData, contactPageData, zonasData, serviceCities] = await Promise.all([
+    getAnalyticContacts(),
+    getMenu(),
+    getContactPage(),
+    getZonas().catch(e => { console.error('Error fetching zonas:', e); return [] }),
+    // Same "flagship" service used on the [service]/[city] pages' own
+    // "Principales Zonas de Servicio" pills — cities with a dedicated page.
+    getServiceCities('construccion-de-tejados-y-cubiertas').catch(e => { console.error('Error fetching service cities:', e); return [] }),
+  ])
+} catch (error) {
+  console.error('Error fetching contact data:', error)
+}
+
+// "Zona de Actuación" list — auto-derived from real zonas, same as the
+// zonas pages' cross-links. No CMS-authored city list required.
+const currentSite = String(import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid').toLowerCase()
+const zonas = (zonasData ?? [])
+  .filter(z => z.city)
+  .map(z => ({
+    city: z.city,
+    href: `/zonas/${String(z.slug ?? '').replace(`${currentSite}-`, '')}`,
+  }))
+
+const site = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid')
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '+34 123 456 789'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${site}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+
+const siteName = formatSiteName(site)
+const pageTitle = contactPageData?.metaTitle || `Contacto - Especialistas en Tejados en ${siteName}`
+const ogImageRaw = contactPageData?.ogImage?.url
+const ogImageUrl = ogImageRaw
+  ? (ogImageRaw.startsWith('http') ? ogImageRaw : `${STRAPI_URL}${ogImageRaw}`)
+  : undefined
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={contactPageData?.metaDescription || `Contacta con Top Tejados ${siteName}: teléfono, formulario y dirección. Respuesta en menos de 24 horas y presupuesto gratuito para reparación y rehabilitación de tejados.`}
+  keywords={contactPageData?.metaKeywords || undefined}
+  canonicalUrl={contactPageData?.canonicalUrl || undefined}
+  ogTitle={contactPageData?.ogTitle || undefined}
+  ogDescription={contactPageData?.ogDescription || undefined}
+  ogImage={ogImageUrl}
+  site={site}
+  phone={phone}
+  email={email}
+  jsonLd={contactPageData?.jsonLd}
+>
+  <Navbar client:load site={site} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+
+  <main>
+    <ContactPage
+      client:idle
+      site={site}
+      strapiUrl={STRAPI_URL}
+      phone={phone}
+      email={email}
+      waLink={waLink}
+      socials={socials}
+      data={contactPageData}
+      contact={contactData}
+      zonas={zonas}
+      serviceCities={serviceCities}
+    />
+  </main>
+</BaseLayout>

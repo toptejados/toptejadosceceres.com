@@ -1,0 +1,58 @@
+---
+// Visible breadcrumb trail. BaseLayout already emits a BreadcrumbList from the
+// same `breadcrumbs` array, but nothing rendered it — Google's guidance is that
+// breadcrumb markup should describe a trail that is actually on the page, and a
+// visitor arriving on /{servicio}/{ciudad} from search had no way up to the
+// service or the home page except the nav.
+//
+// Server-rendered Astro, not an island: it is static links, so shipping JS for
+// it would be waste.
+interface Props {
+  items: Array<{ name: string; url: string }>;
+  class?: string;
+}
+
+const { items = [], class: className = '' } = Astro.props;
+
+// One crumb is just the current page — not a trail, so render nothing.
+const crumbs = (items ?? []).filter((c) => c && c.name && c.url);
+const show = crumbs.length > 1;
+
+// Long page titles make an unreadable final crumb; the trail's job is
+// orientation, not repeating the H1.
+const MAX_CRUMB = 48;
+const truncate = (s: string) =>
+  s.length > MAX_CRUMB ? `${s.slice(0, MAX_CRUMB - 1).trimEnd()}…` : s;
+---
+
+{show && (
+  <nav aria-label="Migas de pan" class={`w-full ${className}`}>
+    <ol class="max-w-[1140px] mx-auto px-6 py-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-slate-500">
+      {crumbs.map((crumb, i) => {
+        const isLast = i === crumbs.length - 1;
+        return (
+          <li class="flex items-center gap-2 min-w-0">
+            {i > 0 && (
+              <span aria-hidden="true" class="text-slate-300 select-none">/</span>
+            )}
+            {isLast ? (
+              /* The current page is not a link. aria-current tells assistive
+                 tech which crumb is "here" without relying on styling. */
+              <span aria-current="page" class="text-slate-700 truncate" title={crumb.name}>
+                {truncate(crumb.name)}
+              </span>
+            ) : (
+              <a
+                href={crumb.url}
+                class="hover:text-slate-900 hover:underline underline-offset-2 transition-colors truncate"
+                title={crumb.name}
+              >
+                {truncate(crumb.name)}
+              </a>
+            )}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}

@@ -1,0 +1,895 @@
+[
+  {
+    "slug": "reparacion-de-tejados-y-cubiertas",
+    "pageTitle": "Reparación de Tejados y Cubiertas en {site} | Urgencias 24h",
+    "hero": {
+      "subtitle": "Reparación de Tejados y Cubiertas",
+      "titlePart1": "Reparación de Tejados en",
+      "titlePart2": "y Provincia",
+      "desc": "Especialistas en la reparación urgente de goteras, filtraciones y daños estructurales en todo tipo de cubiertas. Servicio rápido, profesional y con garantía por escrito en cada intervención."
+    },
+    "stats": {
+      "experience": 25,
+      "warranty": 5,
+      "installations": 1200,
+      "installationsLabel": "reparaciones realizadas"
+    },
+    "tabsSection": {
+      "title": "Servicios de Reparación y Mantenimiento",
+      "tabs": [
+        { "title": "Localización de Goteras", "desc": "Utilizamos tecnología avanzada para detectar el origen exacto de las filtraciones, evitando obras innecesarias y costosas.", "img": "/assets/install/install-service.webp" },
+        { "title": "Reparaciones Urgentes", "desc": "Intervención rápida tras tormentas o siniestros para asegurar la estanqueidad y evitar daños mayores en el interior.", "img": "https://placehold.co/600x400/b91c1c/ffffff?text=Urgencias+24h" },
+        { "title": "Sustitución de Tejas", "desc": "Reposición de tejas rotas, movidas o degradadas, asegurando la continuidad estética y funcional de su tejado.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Cambio+de+Tejas" },
+        { "title": "Refuerzo Estructural", "desc": "Reparación de vigas, rastreles y elementos de soporte que han sufrido daños por humedad o paso del tiempo.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Refuerzo+Estructural" }
+      ],
+      "listItems": ["Atención urgente ante filtraciones", "Presupuesto cerrado sin sorpresas", "Garantía de estanqueidad post-reparación"]
+    },
+    "tiposSection": {
+      "title": "Áreas de Intervención Comunes",
+      "tipos": [
+        { "title": "Goteras y Humedades", "subt": "Solución Definitiva", "text": "Eliminamos cualquier rastro de agua mediante sellados técnicos y reposición de materiales hidrófugos.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Limpieza de Limas", "subt": "Evacuación de Agua", "text": "Mantenimiento crítico de los puntos de encuentro del tejado donde se acumulan hojas y detritos que causan desbordamientos.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Reparación de Chimeneas", "subt": "Puntos Críticos", "text": "Sellado de encuentros entre chimeneas y tejado, uno de los puntos más frecuentes de entrada de agua.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Mantenimiento Preventivo", "subt": "Evite Grandes Gastos", "text": "Revisión anual para detectar pequeños fallos antes de que se conviertan en reparaciones costosas.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 150€"
+    },
+    "tableSection": {
+      "title": "Tipos de Reparaciones y Plazos",
+      "header1": "Tipo de Avería",
+      "header2": "Tiempo Estimado de Respuesta",
+      "rows": [
+        { "m": "Gotera puntual", "d": "Atención en menos de 24/48 horas" },
+        { "m": "Siniestro por tormenta", "d": "Servicio de urgencia inmediato" },
+        { "m": "Desprendimiento de tejas", "d": "Aseguramiento en el mismo día" },
+        { "m": "Humedades persistentes", "d": "Estudio técnico en 48 horas" },
+        { "m": "Revisión general", "d": "Programación según disponibilidad" }
+      ]
+    },
+    "compareSection": {
+      "title": "Reparación Profesional vs Parches Temporales",
+      "col1": "Reparación Técnica Garantizada",
+      "col2": "Soluciones 'Caseras' o Parches",
+      "rows": [
+        { "label": "Durabilidad", "replace": "Solución a largo plazo verificada", "repair": "Falla a los pocos meses o tras la primera lluvia" },
+        { "label": "Seguridad", "replace": "Técnicos cualificados con EPIs", "repair": "Alto riesgo de accidentes por falta de medios" },
+        { "label": "Materiales", "replace": "Selladores y polímeros industriales", "repair": "Siliconas o cementos no aptos para exterior" },
+        { "label": "Ahorro", "replace": "Evita daños mayores en pintura y techos", "repair": "El daño sigue progresando oculto" },
+        { "label": "Valor", "replace": "Aporta certificado de garantía", "repair": "No tiene ningún valor ante seguros" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Nuestro Compromiso en Reparaciones",
+      "features": [
+        { "title": "Rapidez de Respuesta", "desc": "Sabemos que una gotera no puede esperar. Priorizamos las intervenciones urgentes." },
+        { "title": "Transparencia Total", "desc": "Explicamos el origen del problema y mostramos fotos del antes y el después de la reparación." },
+        { "title": "Mínima Molestia", "desc": "Trabajamos de forma limpia y eficiente para que su vida diaria no se vea afectada." }
+      ]
+    },
+    "bannerSection": {
+      "title": "¿Tiene una gotera o necesita una revisión?",
+      "desc": "No espere a que el daño sea mayor. Llámenos ahora y un técnico evaluará el estado de su tejado sin compromiso."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes sobre Reparaciones",
+      "faqs": [
+        { "q": "¿Cobran por el desplazamiento para dar presupuesto?", "a": "En la mayoría de los casos de la zona metropolitana el presupuesto es gratuito. Consúltenos según su ubicación exacta." },
+        { "q": "¿Realizan reparaciones en días de lluvia?", "a": "Podemos realizar aseguramientos de emergencia, pero para reparaciones definitivas y sellados es necesario que la superficie esté seca." },
+        { "q": "¿Sus reparaciones tienen garantía?", "a": "Sí, todas nuestras intervenciones cuentan con una garantía por escrito que cubre tanto los materiales como la mano de obra." },
+        { "q": "¿Trabajan con seguros de hogar?", "a": "Emitimos informes detallados y facturas para que pueda tramitarlos con su compañía de seguros si la avería está cubierta." }
+      ]
+    }
+  },
+  {
+    "slug": "instalacion-y-reparacion-de-claraboyas",
+    "pageTitle": "Instalación y Reparación de Claraboyas en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Instalación y Reparación de Claraboyas",
+      "titlePart1": "Claraboyas en",
+      "titlePart2": "y Provincia",
+      "desc": "Expertos en la instalación, sustitución y reparación de claraboyas y lucernarios. Aumente la luminosidad natural y mejore la ventilación de sus espacios interiores con total garantía de estanqueidad."
+    },
+    "stats": {
+      "experience": 20,
+      "warranty": 5,
+      "installations": 550,
+      "installationsLabel": "claraboyas instaladas"
+    },
+    "tabsSection": {
+      "title": "Servicios de Iluminación Natural",
+      "tabs": [
+        { "title": "Instalación Nuevo Hueco", "desc": "Apertura de nuevos huecos en cubiertas para la instalación de claraboyas fijas o practicables, maximizando la luz natural.", "img": "/assets/install/install-service.webp" },
+        { "title": "Reparación de Goteras", "desc": "Sellado perimetral y sustitución de cúpulas dañadas o juntas envejecidas para eliminar filtraciones de agua de forma definitiva.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Reparacion+Claraboyas" },
+        { "title": "Sustitución", "desc": "Cambio de viejas cúpulas amarillentas o rotas por nuevos modelos de alta eficiencia térmica y acústica sin apenas obra.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Sustitucion+Cúpula" },
+        { "title": "Automatización", "desc": "Instalación de sistemas de apertura eléctrica con sensor de lluvia y mando a distancia para claraboyas de difícil acceso.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Automatización+Claraboyas" }
+      ],
+      "listItems": ["Máxima entrada de luz natural", "Garantía de estanqueidad total", "Variedad de materiales y aperturas"]
+    },
+    "tiposSection": {
+      "title": "Tipos de Claraboyas y Cúpulas",
+      "tipos": [
+        { "title": "Cúpula Monocapa/Bicapa", "subt": "Resistencia y Aislamiento", "text": "Cúpulas de metacrilato o policarbonato que ofrecen gran resistencia al impacto y aislamiento térmico en su versión bicapa.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Claraboya Practicable", "subt": "Ventilación Extra", "text": "Permiten la apertura manual o eléctrica para ventilar espacios como baños, cocinas o buhardillas.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Salida a Tejado", "subt": "Acceso Seguro", "text": "Modelos diseñados específicamente para permitir el acceso cómodo y seguro de técnicos al tejado para mantenimiento.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Lucernarios Técnicos", "subt": "Grandes Superficies", "text": "Soluciones a medida para naves industriales o pasillos amplios que requieren grandes líneas de iluminación.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 250€"
+    },
+    "tableSection": {
+      "title": "Comparativa de Materiales",
+      "header1": "Material de la Cúpula",
+      "header2": "Propiedades Principales",
+      "rows": [
+        { "m": "Metacrilato", "d": "Alta transparencia y resistencia UV" },
+        { "m": "Policarbonato", "d": "Máxima resistencia a impactos (granizo)" },
+        { "m": "Vidrio Laminado", "d": "Aislamiento acústico y seguridad premium" },
+        { "m": "Bicapa (Doble Cúpula)", "d": "Elimina condensaciones y mejora el aislamiento" },
+        { "m": "Cúpula Piramidal", "d": "Estética distintiva y autolimpieza por forma" }
+      ]
+    },
+    "compareSection": {
+      "title": "Reparar vs Sustituir Claraboya",
+      "col1": "Sustitución de Cúpula",
+      "col2": "Sellado y Reparación",
+      "rows": [
+        { "label": "Estética", "replace": "Recupera la transparencia y luz original", "repair": "Se mantienen manchas o amarilleo" },
+        { "label": "Garantía", "replace": "Nueva garantía del fabricante", "repair": "Garantía solo sobre la mano de obra" },
+        { "label": "Eficiencia", "replace": "Nuevas tecnologías de aislamiento", "repair": "Se mantiene el aislamiento antiguo" },
+        { "label": "Coste", "replace": "Inversión mayor pero definitiva", "repair": "Económico a corto plazo" },
+        { "label": "Tiempo", "replace": "Instalación rápida (1-2 horas)", "repair": "Depende del estado de las juntas" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios de una Buena Iluminación Natural",
+      "features": [
+        { "title": "Ahorro Eléctrico", "desc": "Reduzca el uso de luz artificial durante el día en zonas oscuras de la vivienda o negocio." },
+        { "title": "Bienestar y Salud", "desc": "La luz natural mejora el estado de ánimo y la productividad en espacios interiores." },
+        { "title": "Ventilación Natural", "desc": "Favorece la renovación del aire y ayuda a regular la temperatura de forma pasiva." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Lleve luz natural a su hogar hoy mismo",
+      "desc": "Solicite presupuesto para la instalación o reparación de sus claraboyas. Estudio técnico sin compromiso."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes sobre Claraboyas",
+      "faqs": [
+        { "q": "¿Es posible que una claraboya gotee por condensación?", "a": "Sí, en cúpulas monocapa en zonas frías puede ocurrir. La solución es instalar una cúpula bicapa que crea una cámara de aire aislante." },
+        { "q": "¿Cuánto se tarda en cambiar una cúpula rota?", "a": "Si el marco está bien, la sustitución de la cúpula superior es muy rápida, normalmente menos de 2 horas." },
+        { "q": "¿Qué mantenimiento requieren?", "a": "Se recomienda limpiar la cúpula con agua y jabón neutro anualmente y revisar el estado de las juntas de estanqueidad." },
+        { "q": "¿Instalan persianas para claraboyas?", "a": "Sí, disponemos de accesorios como toldillos exteriores o persianas para controlar la entrada de calor en verano." }
+      ]
+    }
+  },
+  {
+    "slug": "instalacion-tejados-panel-sandwich",
+    "pageTitle": "Instalación de Panel Sándwich en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Instalación de Panel Sándwich",
+      "titlePart1": "Panel Sándwich en",
+      "titlePart2": "y Provincia",
+      "desc": "Expertos en la instalación de cubiertas de panel sándwich para naves, viviendas y porches. La solución más eficiente en aislamiento térmico, rapidez de montaje y durabilidad."
+    },
+    "stats": {
+      "experience": 15,
+      "warranty": 10,
+      "installations": 900,
+      "installationsLabel": "proyectos realizados"
+    },
+    "tabsSection": {
+      "title": "Sistemas de Panel Sándwich",
+      "tabs": [
+        { "title": "Imitación Teja", "desc": "Paneles con acabado estético que imita la teja cerámica tradicional, ideales para viviendas y entornos residenciales.", "img": "/assets/install/install-service.webp" },
+        { "title": "Panel Industrial", "desc": "Cubiertas grecadas de alta resistencia para naves industriales y almacenes con máxima eficiencia de aislamiento.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Panel+Industrial" },
+        { "title": "Sustitución", "desc": "Retirada de viejas cubiertas de fibrocemento o teja y sustitución por panel sándwich ligero y aislante.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Sustitucion+Cubierta" },
+        { "title": "Porches y Pérgolas", "desc": "Instalación de paneles autoportantes con acabado interior en madera para la creación de espacios exteriores confortables.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Porches+Panel" }
+      ],
+      "listItems": ["Máximo aislamiento térmico y acústico", "Instalación ultra rápida y en seco", "Bajo mantenimiento y alta durabilidad"]
+    },
+    "tiposSection": {
+      "title": "Tipos de Acabados en Panel Sándwich",
+      "tipos": [
+        { "title": "Teja Roja", "subt": "Estética Clásica", "text": "El acabado más popular para viviendas, combinando la belleza de la teja con las ventajas del panel.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Pizarra", "subt": "Elegancia Moderna", "text": "Imitación perfecta de la pizarra natural, ideal para zonas de montaña o diseños contemporáneos.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Madera Interior", "subt": "Calidez en el Techo", "text": "Acabado interior en madera de pino o roble que aporta una estética acogedora en el interior de la vivienda.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Aluzinc / Blanco", "subt": "Funcionalidad Industrial", "text": "Acabado estándar altamente resistente a la corrosión y fácil de limpiar, perfecto para naves.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 35€/m²"
+    },
+    "tableSection": {
+      "title": "Comparativa de Espesores y Aislamiento",
+      "header1": "Espesor del Panel",
+      "header2": "Capacidad Aislante",
+      "rows": [
+        { "m": "30 mm", "d": "Aislamiento básico para trasteros" },
+        { "m": "40 mm", "d": "Estándar residencial y naves" },
+        { "m": "50 mm", "d": "Aislamiento superior recomendado" },
+        { "m": "60 mm", "d": "Alta eficiencia energética" },
+        { "m": "80 mm", "d": "Recomendado para condiciones extremas" }
+      ]
+    },
+    "compareSection": {
+      "title": "Panel Sándwich vs Teja Tradicional",
+      "col1": "Panel Sándwich",
+      "col2": "Teja sobre rastreles",
+      "rows": [
+        { "label": "Peso", "replace": "Extremadamente ligero (10-12 kg/m²)", "repair": "Pesado (40-60 kg/m²)" },
+        { "label": "Aislamiento", "replace": "Núcleo de poliuretano ininterrumpido", "repair": "Depende de capas adicionales" },
+        { "label": "Tiempo de obra", "replace": "Días", "repair": "Semanas" },
+        { "label": "Estética", "replace": "Imitación muy lograda", "repair": "Original y rústica" },
+        { "label": "Precio total", "replace": "Muy competitivo", "repair": "Más elevado por mano de obra" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Ventajas Clave del Panel Sándwich",
+      "features": [
+        { "title": "Eficiencia Energética", "desc": "Reduce drásticamente el consumo en climatización gracias a su rotura de puente térmico total." },
+        { "title": "Sin Filtraciones", "desc": "Sistema de machihembrado que garantiza una estanqueidad perfecta incluso con poca pendiente." },
+        { "title": "Valorización del Inmueble", "desc": "Mejora el certificado energético y renueva la estética de la cubierta de forma inmediata." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Renueve su tejado con Panel Sándwich hoy",
+      "desc": "Pida presupuesto para la instalación de su nueva cubierta aislante. Soluciones a medida para cada proyecto."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes sobre Panel Sándwich",
+      "faqs": [
+        { "q": "¿Se puede instalar sobre la estructura vieja?", "a": "Sí, al ser tan ligero, suele ser apto para casi cualquier estructura existente, previa revisión de nuestros técnicos." },
+        { "q": "¿Hace mucho ruido cuando llueve?", "a": "Los paneles actuales con núcleo de alta densidad minimizan significativamente el impacto acústico de la lluvia." },
+        { "q": "¿Es resistente al fuego?", "a": "Disponemos de núcleos de lana de roca con certificaciones específicas de resistencia al fuego para naves industriales." },
+        { "q": "¿Se puede pisar por encima?", "a": "Sí, los paneles son autoportantes y transitables para labores de mantenimiento, siempre con las debidas precauciones." }
+      ]
+    }
+  },
+  {
+    "slug": "instalacion-de-onduline-bajo-teja",
+    "pageTitle": "Instalación de Onduline Bajo Teja en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Instalación de Onduline Bajo Teja",
+      "titlePart1": "Onduline Bajo Teja en",
+      "titlePart2": "y Provincia",
+      "desc": "Expertos en la instalación de sistemas Onduline Bajo Teja para garantizar la total impermeabilización y ventilación de su tejado. La solución definitiva contra goteras y humedades para cubiertas de teja."
+    },
+    "stats": {
+      "experience": 20,
+      "warranty": 10,
+      "installations": 750,
+      "installationsLabel": "proyectos realizados"
+    },
+    "tabsSection": {
+      "title": "Sistemas Onduline para Cubiertas",
+      "tabs": [
+        { "title": "Impermeabilización", "desc": "Instalación de placas bituminosas Onduline que actúan como una segunda piel bajo la teja, garantizando estanqueidad total.", "img": "/assets/install/install-service.webp" },
+        { "title": "Rehabilitación", "desc": "Reparación de tejados antiguos mediante el sistema Onduline, permitiendo conservar la estética original con seguridad actual.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Rehabilitacion+Tejados" },
+        { "title": "Microventilación", "desc": "El diseño ondulado de las placas permite la circulación de aire, evitando condensaciones y prolongando la vida de la estructura.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Ventilacion+Tejado" },
+        { "title": "Aislamiento", "desc": "Posibilidad de integrar paneles de aislamiento térmico de alta densidad junto al sistema Onduline para mayor eficiencia.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Aislamiento+Onduline" }
+      ],
+      "listItems": ["100% Impermeable y duradero", "Ligereza estructural máxima", "Fácil adaptación a cualquier teja"]
+    },
+    "tiposSection": {
+      "title": "Ventajas del Sistema Onduline",
+      "tipos": [
+        { "title": "Estanqueidad", "subt": "Doble seguridad", "text": "Incluso si una teja se rompe o se desplaza, el sistema Onduline mantiene el agua fuera de la estructura de la vivienda.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Ligereza", "subt": "Ideal para reformas", "text": "Su bajo peso no sobrecarga la estructura, siendo perfecto para la rehabilitación de tejados antiguos y viguerías de madera.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Versatilidad", "subt": "Todo tipo de tejas", "text": "Compatible con teja curva, plana, mixta o de hormigón. Se adapta perfectamente a cualquier pendiente y geometría.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Durabilidad", "subt": "Material resiliente", "text": "Composición bituminosa de alta calidad que resiste cambios extremos de temperatura sin agrietarse ni perder propiedades.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 25€/m²"
+    },
+    "tableSection": {
+      "title": "Comparativa de Onduline vs Otros Sistemas",
+      "header1": "Característica",
+      "header2": "Ventaja Onduline",
+      "rows": [
+        { "m": "Peso por m²", "d": "Muy ligero (aprox. 3kg/m²)" },
+        { "m": "Instalación", "d": "Rápida y en seco (sin morteros)" },
+        { "m": "Ventilación", "d": "Microventilación natural bajo teja" },
+        { "m": "Garantía", "d": "Hasta 30 años de impermeabilización" },
+        { "m": "Adaptabilidad", "d": "Se adapta a soportes irregulares" }
+      ]
+    },
+    "compareSection": {
+      "title": "Instalación Tradicional vs Onduline Bajo Teja",
+      "col1": "Sistema Onduline",
+      "col2": "Mortero / Cemento Tradicional",
+      "rows": [
+        { "label": "Peso estructural", "replace": "Mínimo, ideal para cualquier soporte", "repair": "Elevado, sobrecarga la estructura" },
+        { "label": "Ventilación", "replace": "Cámara de aire continua y natural", "repair": "Nula, riesgo de condensaciones" },
+        { "label": "Flexibilidad", "replace": "Absorbe movimientos estructurales", "repair": "Rígido, tiende a fisurarse con el tiempo" },
+        { "label": "Limpieza de obra", "replace": "Obra limpia y rápida (fijación mecánica)", "repair": "Obra húmeda, más lenta y costosa" },
+        { "label": "Vida útil", "replace": "Muy larga duración garantizada", "repair": "Requiere mantenimiento frecuente" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Por qué elegir Onduline Bajo Teja",
+      "features": [
+        { "title": "Adiós a las Goteras", "desc": "Es la solución técnica más fiable del mercado para erradicar filtraciones de manera definitiva." },
+        { "title": "Ahorro en Mantenimiento", "desc": "Al proteger la estructura de la humedad, se evitan reparaciones costosas a largo plazo." },
+        { "title": "Calidad Certificada", "desc": "Sistemas avalados por normativas internacionales y décadas de éxito en toda Europa." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Proteja su hogar con la tecnología Onduline",
+      "desc": "Solicite un presupuesto detallado para la impermeabilización de su tejado. Calidad y garantía profesional."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes sobre Onduline",
+      "faqs": [
+        { "q": "¿Se puede instalar Onduline sobre cualquier soporte?", "a": "Sí, se puede aplicar sobre madera, hormigón o incluso directamente sobre rastreles, adaptándose a las irregularidades del tejado." },
+        { "q": "¿Cuánto tiempo dura una instalación de Onduline?", "a": "Las placas Onduline tienen una garantía de impermeabilización de 30 años, aunque su vida útil real suele ser muy superior." },
+        { "q": "¿Es necesario levantar todas las tejas?", "a": "En una rehabilitación completa sí, para colocar las placas sobre el soporte y volver a colocar la teja encima (o teja nueva)." },
+        { "q": "¿Mejora el aislamiento térmico?", "a": "Por sí solo ofrece una barrera, pero lo ideal es combinarlo con paneles de lana de roca o poliestireno para un aislamiento óptimo." }
+      ]
+    }
+  },
+  {
+    "slug": "instalacion-de-canalones",
+    "pageTitle": "Instalación de Canalones en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Instalación de Canalones",
+      "titlePart1": "Canalones en",
+      "titlePart2": "y Provincia",
+      "desc": "Expertos en fabricación e instalación de canalones de aluminio continuo sin juntas, cobre y zinc para viviendas, comunidades y naves. Evite humedades en paredes y cimientos."
+    },
+    "stats": {
+      "experience": 20,
+      "warranty": 10,
+      "installations": 600,
+      "installationsLabel": "canalones instalados"
+    },
+    "tabsSection": {
+      "title": "Servicios en Filtración y Desagüe",
+      "tabs": [
+        { "title": "Instalación", "desc": "Instalación de canalones de aluminio continuo a medida, sin juntas y con variedad de colores para integrar en la fachada.", "img": "/assets/install/install-service.webp" },
+        { "title": "Reparación", "desc": "Arreglo de grietas, sellado de juntas y sustitución de tramos dañados de canalón y bajantes defectuosas.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Reparacion+Canalones" },
+        { "title": "Mantenimiento", "desc": "Revisiones periódicas y ajustes de inclinación para que el agua corra perfectamente hacia las bajantes.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Mantenimiento" },
+        { "title": "Limpieza", "desc": "Limpieza exhaustiva para evitar bloqueos por hojas, nidos o suciedad y prevenir humedades por rebosamiento.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Limpieza" }
+      ],
+      "listItems": ["Atención rápida y eficaz", "Soluciones personalizadas", "Componentes duraderos"]
+    },
+    "tiposSection": {
+      "title": "Tipos de Canalones",
+      "tipos": [
+        { "title": "Aluminio", "subt": "Aluminio Continuo", "text": "Fabricado de una sola pieza a pie de obra. Sin juntas ni empalmes, evitando así goteras.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Cobre", "subt": "Cobre Natural", "text": "Extremadamente resistente y con una estética clásica y elegante que mejora con el tiempo.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Zinc", "subt": "Zinc Titanio", "text": "Material muy duradero y resistente frente a ambientes salinos y polución industrial.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "PVC", "subt": "PVC Extrusionado", "text": "Opción económica y ligera, aunque con menor durabilidad ante exposición solar intensa.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "99€/m (Aprox.)"
+    },
+    "tableSection": {
+      "title": "¿Cuánto dura un canalón?",
+      "header1": "Material",
+      "header2": "Durabilidad Media",
+      "rows": [
+        { "m": "Aluminio Continuo", "d": "Hasta 30 años" },
+        { "m": "Cobre natural", "d": "Más de 50 años" },
+        { "m": "Zinc Titanio", "d": "Hasta 40 años" },
+        { "m": "Acero Galvanizado", "d": "15 a 20 años" },
+        { "m": "PVC y Plástico", "d": "10 a 15 años" }
+      ]
+    },
+    "compareSection": {
+      "title": "Comparativa de Soluciones",
+      "col1": "Reemplazar Canalones",
+      "col2": "Reparar Canalones",
+      "rows": [
+        { "label": "Costo", "replace": "Mayor inversión inicial", "repair": "Más económico a corto plazo" },
+        { "label": "Duración", "replace": "Más duradero (nuevo sistema completo)", "repair": "Depende del estado actual (temporal)" },
+        { "label": "Tiempo de ejecución", "replace": "Puede tomar más tiempo por desmontaje e instalación", "repair": "Rápido, menor intervención" },
+        { "label": "Solución de problemas", "replace": "Elimina problemas estructurales por completo", "repair": "Soluciona daños leves o localizados" },
+        { "label": "Estética", "replace": "Mejora la apariencia general del sistema", "repair": "Puede mantenerse igual" },
+        { "label": "Mantenimiento futuro", "replace": "Menor mantenimiento a largo plazo", "repair": "Puede requerir reparaciones recurrentes" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios",
+      "features": [
+        { "title": "Durabilidad Asegurada", "desc": "Espesores garantizados y aleaciones Premium contra la corrosión." },
+        { "title": "Garantía Escrita", "desc": "Todos nuestros montajes cuentan con respaldo por escrito y servicio posventa." },
+        { "title": "Eficiencia en Drenaje", "desc": "Cálculo de secciones y pendientes perfectas para fuertes lluvias." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Proteja la fachada de su vivienda hoy",
+      "desc": "Pide un estudio de metros y secciones necesarias. Presupuesto detallado en un máximo de 24-48h."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿Cuál es el mejor material para los canalones?", "a": "El aluminio continuo es el más recomendado por calidad/precio, su instalación sin juntas previene filtraciones y cuenta con múltiples acabados." },
+        { "q": "¿Cuándo debería limpiar mis canalones?", "a": "Se recomienda al menos una vez al año, preferiblemente a finales de otoño tras la caída de las hojas, o al final de la primavera." },
+        { "q": "¿Puedo elegir el color del canalón de aluminio?", "a": "Sí, disponemos de una amplia carta de colores que se adaptan a la carpintería o al color de su fachada o tejado." },
+        { "q": "¿Cómo sé si los canalones tienen buena pendiente?", "a": "Si el agua se estanca o rebosa en lugar de fluir hacia la bajante, significa que la inclinación no es adecuada y necesita ajustarse." }
+      ]
+    }
+  },
+  {
+    "slug": "mantenimiento-y-limpieza-de-tejados-y-canalones",
+    "pageTitle": "Mantenimiento y Limpieza de Tejados y Canalones en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Mantenimiento y Limpieza",
+      "titlePart1": "Limpieza de Tejados en",
+      "titlePart2": "y Provincia",
+      "desc": "Servicio profesional de mantenimiento y limpieza de tejados y canalones. Eliminamos hojas, suciedad y obstrucciones para garantizar el correcto flujo de agua y prevenir humedades."
+    },
+    "stats": {
+      "experience": 20,
+      "warranty": 5,
+      "installations": 1200,
+      "installationsLabel": "tejados limpiados"
+    },
+    "tabsSection": {
+      "title": "Nuestros Servicios de Mantenimiento",
+      "tabs": [
+        { "title": "Limpieza", "desc": "Limpieza profunda de tejados y canalones para eliminar musgo, hojas y nidos que puedan causar bloqueos.", "img": "/assets/install/install-service.webp" },
+        { "title": "Inspección", "desc": "Inspección detallada para detectar tejas rotas, grietas o problemas en la estructura antes de que causen daños mayores.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Reparacion+Canalones" },
+        { "title": "Mantenimiento Preventivo", "desc": "Programas de mantenimiento regulares para asegurar que su sistema de drenaje funcione perfectamente todo el año.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Mantenimiento" },
+        { "title": "Desatascos", "desc": "Desatasco rápido y eficiente de bajantes y canalones bloqueados para evitar desbordamientos y humedades.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Limpieza" }
+      ],
+      "listItems": ["Equipos especializados", "Trabajos seguros en altura", "Resultados garantizados"]
+    },
+    "tiposSection": {
+      "title": "Áreas de Limpieza",
+      "tipos": [
+        { "title": "Canalones", "subt": "Limpieza Interior", "text": "Retirada de hojas y residuos para evitar bloqueos y asegurar el correcto desagüe.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Tejados", "subt": "Eliminación de Musgo", "text": "Limpieza a presión controlada o manual para eliminar musgo y líquenes que deterioran la teja.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Bajantes", "subt": "Desobstrucción", "text": "Limpieza vertical para asegurar que el agua fluya sin problemas hasta el suelo.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Claraboyas", "subt": "Limpieza Exterior", "text": "Limpieza de ventanas de tejado y claraboyas para recuperar la luminosidad.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 150€"
+    },
+    "tableSection": {
+      "title": "Frecuencia de Mantenimiento Recomendada",
+      "header1": "Tipo de Entorno",
+      "header2": "Frecuencia Ideal",
+      "rows": [
+        { "m": "Zonas muy arboladas", "d": "2 veces al año (Otoño y Primavera)" },
+        { "m": "Zonas urbanas estándar", "d": "1 vez al año" },
+        { "m": "Zonas de fuertes vientos", "d": "1 - 2 veces al año" },
+        { "m": "Edificios antiguos", "d": "Revisión semestral" },
+        { "m": "Tras tormentas fuertes", "d": "Inspección puntual recomendada" }
+      ]
+    },
+    "compareSection": {
+      "title": "Comparativa de Mantenimiento",
+      "col1": "Mantenimiento Preventivo",
+      "col2": "Reparación de Daños (Reactivo)",
+      "rows": [
+        { "label": "Costo", "replace": "Bajo, planificado y controlado", "repair": "Alto, frecuentemente inesperado" },
+        { "label": "Daños colaterales", "replace": "Casi inexistentes al prevenir problemas", "repair": "Puede causar humedades graves en interiores" },
+        { "label": "Estrés", "replace": "Tranquilidad durante todo el año", "repair": "Urgencias y molestias por goteras" },
+        { "label": "Vida útil del tejado", "replace": "Prolonga significativamente la vida útil", "repair": "Reduce la integridad general de la cubierta" },
+        { "label": "Estética", "replace": "Mantiene el aspecto limpio y cuidado", "repair": "Manchas de humedad visibles en fachadas" },
+        { "label": "Eficiencia", "replace": "Drenaje óptimo en cada lluvia", "repair": "Riesgo de desbordamiento constante" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios de la Limpieza",
+      "features": [
+        { "title": "Prevención de Humedades", "desc": "Evite filtraciones en paredes y techos por desbordamiento de canalones atascados." },
+        { "title": "Mayor Durabilidad", "desc": "El musgo y los residuos retienen humedad que deteriora rápidamente las tejas." },
+        { "title": "Seguridad Total", "desc": "Evite riesgos innecesarios subiendo al tejado; nuestros técnicos son especialistas en trabajos en altura." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Mantenga su tejado impecable hoy",
+      "desc": "Solicite una inspección y limpieza profunda. Proteja su hogar antes de que comiencen las lluvias."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿Es necesario limpiar los canalones todos los años?", "a": "Sí, especialmente si su vivienda está cerca de árboles. Las hojas acumuladas bloquean el desagüe causando problemas serios de humedad." },
+        { "q": "¿Cómo eliminan el musgo de las tejas?", "a": "Utilizamos métodos seguros y productos específicos que eliminan el musgo de raíz sin dañar la integridad de la cubierta." },
+        { "q": "¿Qué pasa si mis canalones ya están atascados?", "a": "Realizamos un servicio de desatasco de urgencia para liberar la bajante y posteriormente limpiamos toda la longitud del canalón." },
+        { "q": "¿Ofrecen contratos de mantenimiento anual?", "a": "Sí, disponemos de planes de mantenimiento preventivo para que no tenga que preocuparse nunca de revisar el estado de su tejado." }
+      ]
+    }
+  },
+  {
+    "slug": "aislamiento-termico-y-acustico",
+    "pageTitle": "Aislamiento Térmico y Acústico en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Aislamiento Térmico y Acústico",
+      "titlePart1": "Aislamiento de Viviendas en",
+      "titlePart2": "y Provincia",
+      "desc": "Soluciones profesionales en aislamiento térmico y acústico. Mejora la eficiencia energética de tu hogar, reduce las facturas de consumo y disfruta de un confort interior sin ruidos."
+    },
+    "stats": {
+      "experience": 15,
+      "warranty": 5,
+      "installations": 800,
+      "installationsLabel": "viviendas aisladas"
+    },
+    "tabsSection": {
+      "title": "Nuestros Sistemas de Aislamiento",
+      "tabs": [
+        { "title": "Insuflado", "desc": "Inyección de material aislante en cámaras de aire vacías sin necesidad de grandes obras ni andamios.", "img": "/assets/install/install-service.webp" },
+        { "title": "SATE", "desc": "Sistema de Aislamiento Térmico por el Exterior para proteger la fachada del frío, calor y humedades.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Renovacion+Exterior" },
+        { "title": "Acústico", "desc": "Instalación de paneles absorbentes y materiales antirruido para techos, paredes y suelos.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Aislamiento+Acustico" },
+        { "title": "Cubiertas", "desc": "Aislantes reflexivos y paneles sándwich para evitar la pérdida de calor a través del tejado.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Impermeabilizaciones" }
+      ],
+      "listItems": ["Reducción de consumo eléctrico", "Confort térmico todo el año", "Eliminación de condensaciones"]
+    },
+    "tiposSection": {
+      "title": "Materiales Aislantes",
+      "tipos": [
+        { "title": "Lana de Roca", "subt": "Protección Térmica e Incombustible", "text": "Excelente aislante que además ofrece protección contra el fuego y el ruido exterior.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Celulosa", "subt": "Aislamiento Ecológico", "text": "Material reciclado con grandes propiedades de regulación de la humedad ambiental.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Poliuretano", "subt": "Aislamiento Proyectado", "text": "Espuma que sella perfectamente eliminando humedades y puentes térmicos al instante.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "EPS / XPS", "subt": "Paneles de Poliestireno", "text": "Paneles rígidos con gran durabilidad, muy utilizados en fachadas exteriores (SATE) y suelos.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 20€/m²"
+    },
+    "tableSection": {
+      "title": "Ahorro Estimado por Aislamiento",
+      "header1": "Tipo de Intervención",
+      "header2": "Ahorro Energético",
+      "rows": [
+        { "m": "Aislamiento de Fachadas (SATE)", "d": "Hasta un 40% de ahorro" },
+        { "m": "Insuflado en Cámaras de Aire", "d": "Entre 25% y 30%" },
+        { "m": "Aislamiento bajo Cubierta / Tejado", "d": "Hasta un 35% de ahorro" },
+        { "m": "Aislamiento Acústico en Medianeras", "d": "Reducción de hasta 60dB" },
+        { "m": "Sustitución de Ventanas (RPT)", "d": "Entre 15% y 20%" }
+      ]
+    },
+    "compareSection": {
+      "title": "Comparativa de Aislamientos",
+      "col1": "SATE (Por el exterior)",
+      "col2": "Insuflado (Por el interior)",
+      "rows": [
+        { "label": "Espacio interior", "replace": "No resta espacio útil a la vivienda", "repair": "No resta espacio, usa la cámara vacía" },
+        { "label": "Puentes térmicos", "replace": "Elimina el 100% de los puentes térmicos", "repair": "Puede dejar pilares sin aislar" },
+        { "label": "Tiempo de obra", "replace": "Requiere andamios y varias semanas", "repair": "Se realiza en 1 o 2 días sin obra visual" },
+        { "label": "Presupuesto", "replace": "Elevado, necesita licencia mayor", "repair": "Económico, ideal para pisos" },
+        { "label": "Estética", "replace": "Renueva por completo la fachada", "repair": "Se tapan los agujeros de inyección, queda invisible" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios de Aislar tu Hogar",
+      "features": [
+        { "title": "Ahorro en Facturas", "desc": "Reduce drásticamente el gasto en calefacción en invierno y aire acondicionado en verano." },
+        { "title": "Revalorización de la Vivienda", "desc": "Una buena calificación energética aumenta el valor de la propiedad en el mercado." },
+        { "title": "Hogar Saludable", "desc": "Elimina las humedades por condensación y los hongos, mejorando la calidad del aire interior." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Empieza a ahorrar en tu factura energética",
+      "desc": "Pide una visita técnica gratuita para estudiar el aislamiento que necesita tu vivienda."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿En cuánto tiempo se amortiza la inversión?", "a": "Normalmente, la inversión requerida para el aislamiento se recupera entre 3 y 5 años." },
+        { "q": "¿Se necesita pedir permiso a la comunidad?", "a": "Para el aislamiento térmico por el exterior (SATE) sí es necesario. Para insuflado por el interior, normalmente no." },
+        { "q": "¿El aislamiento térmico también es acústico?", "a": "Sí, materiales como la Lana de Roca o la Celulosa tienen excelentes propiedades para reducir el ruido exterior." },
+        { "q": "¿Se puede aislar si mi casa ya está amueblada?", "a": "Sí, el aislamiento por insuflado es muy limpio y rápido, permitiendo hacerlo con la casa totalmente habitada." }
+      ]
+    }
+  },
+  {
+    "slug": "impermeabilizaciones",
+    "pageTitle": "Impermeabilizaciones en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Impermeabilizaciones",
+      "titlePart1": "Impermeabilización en",
+      "titlePart2": "y Provincia",
+      "desc": "Proteja su vivienda contra lluvias y humedades con nuestros sistemas avanzados de impermeabilización. Soluciones duraderas para cubiertas planas, inclinadas, terrazas y naves industriales."
+    },
+    "stats": {
+      "experience": 15,
+      "warranty": 10,
+      "installations": 1500,
+      "installationsLabel": "proyectos realizados"
+    },
+    "tabsSection": {
+      "title": "Sistemas de Impermeabilización",
+      "tabs": [
+        { "title": "Membranas", "desc": "Aplicación de membranas de poliuretano líquido que forman una capa continua, elástica y resistente al agua sin juntas.", "img": "/assets/install/install-service.webp" },
+        { "title": "Asfálticas", "desc": "Instalación tradicional de telas asfálticas de alta calidad, ideales para cubiertas planas y terrazas transitables.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Renovacion+Exterior" },
+        { "title": "PVC / EPDM", "desc": "Láminas sintéticas de PVC o EPDM con soldadura térmica para grandes superficies ofreciendo máxima durabilidad.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Aislamiento+Acustico" },
+        { "title": "Invisible", "desc": "Aplicación de resinas líquidas transparentes sobre baldosas existentes en terrazas, sin alterar la estética original.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Impermeabilizaciones" }
+      ],
+      "listItems": ["Protección total contra filtraciones", "Alta resistencia a la intemperie", "Ampliación de la vida útil del tejado"]
+    },
+    "tiposSection": {
+      "title": "Zonas de Actuación",
+      "tipos": [
+        { "title": "Tejados", "subt": "Cubiertas inclinadas", "text": "Impermeabilización bajo teja o sobre la teja para evitar la aparición de goteras y humedades.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Terrazas", "subt": "Planos y balcones", "text": "Soluciones pisables y decorativas para terrazas que sufren filtraciones hacia pisos inferiores.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Sótanos", "subt": "Humedad por capilaridad", "text": "Tratamientos perimetrales para evitar filtraciones de agua provenientes del subsuelo.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Naves", "subt": "Cubiertas industriales", "text": "Reparación y sellado de cubiertas de chapa o panel sándwich de grandes dimensiones.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 15€/m²"
+    },
+    "tableSection": {
+      "title": "Opciones de Impermeabilización",
+      "header1": "Tipo / Material",
+      "header2": "Garantía Estimada",
+      "rows": [
+        { "m": "Poliuretano Líquido", "d": "10 a 15 años" },
+        { "m": "Lámina EPDM", "d": "Hasta 20 años" },
+        { "m": "Tela Asfáltica Doble Capa", "d": "10 a 12 años" },
+        { "m": "Resina Transparente", "d": "5 a 10 años" },
+        { "m": "Morteros Impermeabilizantes", "d": "Larga duración" }
+      ]
+    },
+    "compareSection": {
+      "title": "Comparativa de Soluciones",
+      "col1": "Poliuretano Líquido",
+      "col2": "Tela Asfáltica",
+      "rows": [
+        { "label": "Juntas", "replace": "Sin juntas (membrana continua)", "repair": "Presenta juntas y solapes" },
+        { "label": "Aplicación", "replace": "Rápida, con rodillo o pistola airless", "repair": "Requiere soplete y mayor destreza" },
+        { "label": "Flexibilidad", "replace": "Alta elasticidad frente a dilataciones", "repair": "Moderada, puede craquear con el calor/frío extremos" },
+        { "label": "Transitabilidad", "replace": "Se puede hacer transitable con refuerzo", "repair": "Requiere pavimentado exterior extra" },
+        { "label": "Presupuesto", "replace": "Coste inicial ligeramente superior", "repair": "Más económico inicialmente" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios de la Impermeabilización",
+      "features": [
+        { "title": "Salud y Bienestar", "desc": "Elimine la aparición de moho y malos olores producidos por las humedades." },
+        { "title": "Protección Estructural", "desc": "El agua puede comprometer la estructura de la vivienda oxidando vigas y debilitando muros." },
+        { "title": "Ahorro Económico", "desc": "Prevenir es siempre mucho más barato que reparar daños mayores en el futuro." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Presupuesto sin compromiso para acabar con las goteras",
+      "desc": "Contacte hoy con nosotros y un técnico evaluará sus necesidades in situ sin costes ocultos."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿Es necesario levantar el suelo de mi terraza para impermeabilizar?", "a": "No siempre. Existen soluciones de poliuretano líquido o resina transparente que se pueden aplicar directamente sobre el pavimento actual." },
+        { "q": "¿Cuánto se tarda en realizar la obra?", "a": "Dependiendo de los metros y la limpieza previa necesaria, la mayoría de impermeabilizaciones residenciales se completan en 1 o 2 días." },
+        { "q": "¿Qué época del año es mejor para hacerlo?", "a": "Es preferible en primavera o verano debido a que para la buena adherencia se necesitan superficies completamente secas." },
+        { "q": "¿Tienen garantía los trabajos?", "a": "Sí, emitimos un certificado de hasta 10 años de garantía para nuestra impermeabilización con membranas sintéticas de poliuretano y EPDM." }
+      ]
+    }
+  },
+  {
+    "slug": "instalacion-y-reparacion-de-ventanas-velux",
+    "pageTitle": "Instalación y Reparación de Ventanas Velux en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Instaladores Especialistas Velux",
+      "titlePart1": "Instalación de Ventanas Velux en",
+      "titlePart2": "y Provincia",
+      "desc": "Aprovecha la luz natural y mejora la ventilación de tu buhardilla con ventanas de tejado Velux. Somos especialistas en montaje, reparación y sustitución en tejados de pizarra, teja y cubiertas planas."
+    },
+    "stats": {
+      "experience": 20,
+      "warranty": 10,
+      "installations": 600,
+      "installationsLabel": "ventanas instaladas"
+    },
+    "tabsSection": {
+      "title": "Tipos de Ventanas de Tejado",
+      "tabs": [
+        { "title": "Giratorias", "desc": "Ventanas con eje central, perfectas para la mayoría de cubiertas inclinadas. Permiten colocar muebles justo bajo la ventana.", "img": "/assets/install/install-service.webp" },
+        { "title": "Proyectantes", "desc": "Se abren hacia afuera ofreciendo vistas panorámicas y maximizando el espacio de la buhardilla.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Velux+Proyectante" },
+        { "title": "Techo Plano", "desc": "Especialmente diseñadas para llevar luz natural a viviendas con cubiertas planas o sin inclinación.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Velux+Plano" },
+        { "title": "Solar/Eléctricas", "desc": "Ventanas inteligentes Velux Integra accionadas a distancia, ideales para zonas de difícil acceso.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Velux+Integra" }
+      ],
+      "listItems": ["Mayor entrada de luz natural", "Eficiencia energética garantizada", "Aislamiento acústico integrado"]
+    },
+    "tiposSection": {
+      "title": "Nuestros Servicios Velux",
+      "tipos": [
+        { "title": "Instalación", "subt": "Apertura de huecos", "text": "Realizamos el agujero en su cubierta y dejamos la ventana instalada con remates perfectos para evitar filtraciones.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Sustitución", "subt": "Cambio de ventanas antiguas", "text": "Sustituimos su vieja ventana por un modelo nuevo más eficiente sin apenas hacer obra interior.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Reparación", "subt": "Solución de goteras", "text": "Si su ventana filtra agua, reparamos el tapajuntas o el vidrio conservando el marco si está en buen estado.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Accesorios", "subt": "Persianas Velux", "text": "Instalación de cortinas, oscurecedoras y persianas exteriores para control solar y térmico.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Presupuesto a Medida"
+    },
+    "tableSection": {
+      "title": "Tipos de Cristal Velux",
+      "header1": "Tipo de Acristalamiento",
+      "header2": "Características Principales",
+      "rows": [
+        { "m": "Estándar", "d": "Doble acristalamiento, protección básica y seguridad" },
+        { "m": "Aislamiento Acústico", "d": "Reduce el ruido de la lluvia y tráfico exterior" },
+        { "m": "Alta Eficiencia", "d": "Triple cristal para climas extremadamente fríos" },
+        { "m": "Protección Solar", "d": "Filtra el calor en verano y el sol directo" },
+        { "m": "Antirrobo", "d": "Lámina interna de seguridad reforzada" }
+      ]
+    },
+    "compareSection": {
+      "title": "Sustituir vs Reparar",
+      "col1": "Sustitución",
+      "col2": "Reparación",
+      "rows": [
+        { "label": "Eficiencia", "replace": "Mejora hasta un 115% el aislamiento", "repair": "Se mantiene el aislamiento viejo" },
+        { "label": "Vida útil", "replace": "+20 años con tecnología actual", "repair": "Alarga la vida útil pocos años" },
+        { "label": "Estética", "replace": "Diseño moderno, mayor luz", "repair": "Mismo aspecto antiguo" },
+        { "label": "Coste", "replace": "Inversión mayor a largo plazo", "repair": "Económico a corto plazo" },
+        { "label": "Garantía", "replace": "10 años en toda la ventana", "repair": "Garantía solo en la reparación" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Beneficios de Ventanas de Tejado",
+      "features": [
+        { "title": "Luz Natural Abundante", "desc": "Aportan hasta el doble de luz que una ventana vertical del tamaño equivalente." },
+        { "title": "Ventilación Efectiva", "desc": "Efecto chimenea natural que renueva el aire de la vivienda rápidamente." },
+        { "title": "Ahorro Energético", "desc": "Menos consumo de luz artificial y mejor aislamiento con modelos actuales." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Transforme su buhardilla con luz natural",
+      "desc": "Pregúntenos por el modelo Velux ideal para su tejado y le daremos un presupuesto sin compromiso."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿Cuánto se tarda en cambiar una ventana Velux?", "a": "En la gran mayoría de casos, un instalador experto sustituye la ventana por una nueva en tan solo 1 día (aproximadamente 4-6 horas) y por el interior de la vivienda sin usar andamios exteriores." },
+        { "q": "¿Tengo que hacer obra si pongo una ventana nueva?", "a": "Sí, se requiere abrir el hueco en el tejado y rematar el interior (pladur, yeso o madera). Realizamos el proceso completo con un acabado fino." },
+        { "q": "Mi Velux hace años que gotea al llover, ¿tiene arreglo?", "a": "A menudo la gotera es por hojas acumuladas en el cerco exterior (tapajuntas) o porque las gomas se resecan. Se puede realizar una puesta a punto sin cambiar todo el marco." },
+        { "q": "¿Instalan accesorios originales Velux?", "a": "Sí, instalamos persianas exteriores (manuales, solares o eléctricas), toldos exteriores contra el calor y cortinas de oscurecimiento." }
+      ]
+    }
+  },
+  {
+    "slug": "construccion-de-tejados-de-pizarra",
+    "pageTitle": "Construcción de Tejados de Pizarra en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Construcción de Tejados de Pizarra",
+      "titlePart1": "Tejados de Pizarra en",
+      "titlePart2": "y Provincia",
+      "desc": "Expertos en la construcción, instalación y reparación de tejados de pizarra. Material natural de máxima resistencia y gran belleza estética, ideal para proteger su vivienda de manera duradera."
+    },
+    "stats": {
+      "experience": 25,
+      "warranty": 20,
+      "installations": 850,
+      "installationsLabel": "tejados instalados"
+    },
+    "tabsSection": {
+      "title": "Servicios Especializados en Pizarra",
+      "tabs": [
+        { "title": "Construcción", "desc": "Diseño e instalación de tejados de pizarra nueva, desde el aislamiento hasta la colocación final de cada pieza con precisión milimétrica.", "img": "/assets/install/install-service.webp" },
+        { "title": "Reparación", "desc": "Arreglo y sustitución de tejas de pizarra caídas, rotas o deterioradas para paralizar filtraciones y recuperar la seguridad de la cubierta.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Reparacion+Tejados" },
+        { "title": "Mantenimiento", "desc": "Revisión constante e inspección del estado de los amarres de su tejado para prevenir desplazamientos debidos a fuertes ráfagas de viento.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Mantenimiento+Pizarra" },
+        { "title": "Aislamiento Bajo Teja", "desc": "Instalación de paneles aislantes y rastreles térmicos antes de la colocación de la pizarra, aumentando la eficiencia térmica de la vivienda.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Aislamiento+Bajo+Teja" }
+      ],
+      "listItems": ["Gran resistencia a la intemperie", "Aislamiento altamente eficaz", "Valorización del inmueble"]
+    },
+    "tiposSection": {
+      "title": "Formatos y Tipos de Pizarra",
+      "tipos": [
+        { "title": "Rectangular", "subt": "Clásica y Elegante", "text": "El modelo más tradicional y utilizado, ideal para conseguir cubiertas sobrias con un acabado muy profesional y limpio.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Romboidal", "subt": "Estilo en Escama", "text": "Un corte característico que aporta un aspecto más histórico, muy popular en zonas de montaña y arquitecturas distintivas.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Redondeada", "subt": "Curvatura Inferior", "text": "Sus bordes curvos o patrón tipo cola de castor difuminan los fuertes vientos reduciendo la fricción sobre el tejado.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Gran Formato", "subt": "Máxima Cobertura", "text": "Losas de mayores dimensiones diseñadas para cubiertas menos rugosas y revestimiento rápido de fachadas expuestas.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Desde 45€/m²"
+    },
+    "tableSection": {
+      "title": "Comparativa de Vida Útil de Materiales",
+      "header1": "Tipo de Cubierta",
+      "header2": "Durabilidad Promedio",
+      "rows": [
+        { "m": "Pizarra Natural", "d": "Más de 100 años (Casi inalterable)" },
+        { "m": "Teja Cerámica Tradicional", "d": "Entre 50 y 60 años" },
+        { "m": "Teja de Hormigón", "d": "Hasta 50 años" },
+        { "m": "Chapa Galvanizada / Panel", "d": "Entre 25 y 40 años" },
+        { "m": "Asfáltica y Membranas", "d": "Entre 10 y 20 años" }
+      ]
+    },
+    "compareSection": {
+      "title": "Métodos de Instalación",
+      "col1": "Sujeción mediante Gancho",
+      "col2": "Sujeción mediante Clavado",
+      "rows": [
+        { "label": "Impacto Visual", "replace": "Ganchos fijadores de acero inoxidable visibles", "repair": "Fijación queda oculta, acabado más pulido" },
+        { "label": "Ritmo de Ejecución", "replace": "Proceso de colocación mucho más ágil", "repair": "Trabajo más lento al requerir taladrado manual" },
+        { "label": "Fijación Estructural", "replace": "Excelente a presiones medias, anclaje seguro", "repair": "Excepcional en zonas expuestas a grandes ráfagas" },
+        { "label": "Inclinación", "replace": "Apto para la mayoría de los tejados convencionales", "repair": "Perfecto para pendientes agresivas o verticales" },
+        { "label": "Sencillez de Arreglo", "replace": "Cambio de placas sencillo abriendo el gancho", "repair": "Reparación compleja que exige herramienta especial" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Principales Ventajas de la Pizarra",
+      "features": [
+        { "title": "Inversión Rentable", "desc": "Su resistencia superior convierte a la cubierta de pizarra en la mejor inversión a largo plazo para cualquier edificación." },
+        { "title": "Impermeabilidad Garantizada", "desc": "No padece la gelicidad; su baja porosidad previene las roturas provocadas por las heladas." },
+        { "title": "Mínimo Impacto Medioambiental", "desc": "Requiere únicamente extracción y labrado, omitiendo los procesos de cocción contaminantes de otras alternativas." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Asegure un tejado natural y para toda la vida",
+      "desc": "Realizamos un estudio de cargas de la cubierta para asegurarnos de que la pizarra se instale con total seguridad. ¡Consúltenos ahora!"
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes",
+      "faqs": [
+        { "q": "¿Mi vivienda actual soporta techo de pizarra?", "a": "La pizarra es más pesada que otros materiales. Es imprescindible que nuestros técnicos evaluen y refuercen, si es necesario, la estructura portante de su actual tejado." },
+        { "q": "¿Es considerablemente más cara frente a las tejas comunes?", "a": "Aunque el material y la complejidad de instalación encarecen inicialmente la obra, dura el doble o triple que una cubierta convencional, ahorrándole futuras renovaciones." },
+        { "q": "¿Cuándo se requiere mantenimiento?", "a": "Se recomienda una inspección ocular una vez al año tras el invierno. En general, con pizarra de buena calidad y una instalación maestra, el mantenimiento es sumamente bajo." },
+        { "q": "¿Resiste granizadas fuertes?", "a": "Es un material rocoso extremadamente duro. Aunque un granizo anormalmente denso siempre es un peligro, la pizarra de calidad absorbe impactos mejor que casi todas las tejas convencionales." }
+      ]
+    }
+  },
+  {
+    "slug": "construccion-de-tejados-y-cubiertas",
+    "pageTitle": "Construcción de Tejados y Cubiertas en {site} | Especialistas",
+    "hero": {
+      "subtitle": "Construcción de Tejados y Cubiertas",
+      "titlePart1": "Tejados y Cubiertas en",
+      "titlePart2": "y Provincia",
+      "desc": "Especialistas en el diseño, construcción y renovación completa de todo tipo de tejados y cubiertas. Garantizamos estructuras sólidas, máximo aislamiento y los mejores acabados estéticos para proteger su hogar."
+    },
+    "stats": {
+      "experience": 25,
+      "warranty": 15,
+      "installations": 1100,
+      "installationsLabel": "proyectos completados"
+    },
+    "tabsSection": {
+      "title": "Nuestros Contratistas de Cubiertas",
+      "tabs": [
+        { "title": "Obra Nueva", "desc": "Construcción integral de cubiertas para edificaciones nuevas, desde la estructura de madera o metálica hasta el revestimiento exterior con teja o panel.", "img": "/assets/install/install-service.webp" },
+        { "title": "Rehabilitación", "desc": "Renovación completa de tejados antiguos, sustituyendo elementos estructurales dañados por la humedad, el paso del tiempo o plagas de madera.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Rehabilitacion+Tejados" },
+        { "title": "Cubiertas Planas", "desc": "Diseño y ejecución de cubiertas planas transitables o ajardinadas aplicando los sistemas asfálticos y sintéticos más avanzados del mercado.", "img": "https://placehold.co/600x400/2d3270/ffffff?text=Cubiertas+Planas" },
+        { "title": "Panel Sándwich", "desc": "Instalación de cubiertas con panel sándwich de diferentes grosores para edificaciones que requieren un aislamiento termoacústico industrial superior.", "img": "https://placehold.co/600x400/4a4f8a/ffffff?text=Panel+Sandwich" }
+      ],
+      "listItems": ["Proyectos llave en mano integrales", "Estructuras certificadas y homologadas", "Estricto cumplimiento normativo (CTE)"]
+    },
+    "tiposSection": {
+      "title": "Sistemas Estructurales y Acabados",
+      "tipos": [
+        { "title": "Tejas Cerámicas", "subt": "Tradición y Estética", "text": "La cubierta clásica por excelencia en nuestro clima. Ofrece una ventilación natural envidiable y muchísima pluralidad de formas (curva, plana o mixta) y acabados.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Madera Tratada", "subt": "Calidez y Ligereza", "text": "Entramados de vigas de madera laminada tratada contra humedad y xilófagos, ideales por su menor peso propio y su innegable valor estético en interiores vistos.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Acero Estructural", "subt": "Resistencia a Grandes Luces", "text": "Vigas y cerchas de perfilería metálica capaces de soportar enormes cargas vivas y salvar grandes distancias sin columnas intermedias, ideal en proyectos industriales.", "img": "/assets/install/install-tipos.webp" },
+        { "title": "Cubiertas Inclinadas", "subt": "Desagüe Natural Superior", "text": "Diseñamos faldones técnicos con la pendiente calculada al milímetro para facilitar la rápida evacuación del agua pluvial o la nieve, evitando siempre el estancamiento.", "img": "/assets/install/install-tipos.webp" }
+      ],
+      "priceLabel": "Presupuesto Personalizado"
+    },
+    "tableSection": {
+      "title": "Comparativa de Sistemas a Elegir",
+      "header1": "Tipo de Sistema Constructivo",
+      "header2": "Uso Ideal Recomendado",
+      "rows": [
+        { "m": "Cubierta Inclinada de Teja", "d": "Viviendas residenciales, chalets y edificios clásicos" },
+        { "m": "Cubierta Plana Invertida", "d": "Edificios urbanos modernos y terrazas transitables o de servicio" },
+        { "m": "Tejado Tradicional de Pizarra", "d": "Entornos fríos, de alta montaña o construcciones de corte rústico" },
+        { "m": "Panel Sándwich Metálico Reforzado", "d": "Naves industriales, garajes de gran tamaño, instalaciones deportivas y anexos" },
+        { "m": "Cubierta Ecológica (Ajardinada)", "d": "Viviendas de clase pasiva y arquitecturas profundamente enfocadas a la sostenibilidad" }
+      ]
+    },
+    "compareSection": {
+      "title": "Renovación Integral de la Cubierta vs. Mejora Parcial",
+      "col1": "Rehabilitación Integral Completa",
+      "col2": "Cambio Exclusivo de Cobertura (Remodelación Parcial)",
+      "rows": [
+        { "label": "Estructura Base y Soporte", "replace": "Se demuele totalmente y se renueva o refuerza de raíz, garantizando seguridad al 100%", "repair": "Se mantiene intacta la estructura vieja existente bajo el nuevo material" },
+        { "label": "Tiempo Estimado de Obra", "replace": "La faena compleja puede prolongarse justificadamente entre varias semanas", "repair": "La ejecución es muchísimo más rápida y puede completarse en muy pocos días" },
+        { "label": "Oportunidades de Aislamiento", "replace": "Momento perfecto para integrar aislamientos innovadores e ininterrumpidos en toda el área", "repair": "Solo se permite añadir aislamiento focalizado en zonas accesibles o entre viejos rastreles" },
+        { "label": "Garantía de Futuro y Tranquilidad", "replace": "Supone la solución técnica definitiva, evitando preocupaciones por un mínimo de tres décadas", "repair": "El éxito a la larga dependerá de que el soporte subyacente antiguo no llegue a deprimirse o fallar" },
+        { "label": "Presupuesto o Inversión Incial", "replace": "La inversión requerida es notoriamente mayor debido a tareas previas de desescombro y demolición", "repair": "Es una propuesta notablemente más económica y llevadera desde el principio" }
+      ]
+    },
+    "featuresSection": {
+      "title": "Ventajas Cruciales de Ejecutar una Buena Construcción",
+      "features": [
+        { "title": "Estabilidad y Seguridad Total", "desc": "Una cubierta debidamente trazada y robusta resistirá temporales huracanados, feroces tormentas y copiosas nevadas estacionales totalmente ilesa, sin llegar a comprometer la integridad habitacional." },
+        { "title": "Optima Eficiencia Energética", "desc": "Es precisamente en la azotea por donde puede fugarse fácilmente hasta el 30% del calor producido interiormente. Construimos introduciendo un excelente cerramiento térmico para maximizar su confort." },
+        { "title": "Altísima Revalorización del Inmueble Actual", "desc": "Se trata estadísticamente de una de las reformas integrales más altamente valoradas el día de mañana durante una tasación formal o transacción de mercado secundario." }
+      ]
+    },
+    "bannerSection": {
+      "title": "Construimos el cobijo perfecto y duradero para toda su familia",
+      "desc": "Estudiamos con profundidad profesional su proyecto sobre plano oficial o nos desplazamos in situ hasta su propio inmueble para delinear y plantearle la mejor y más óptima estrategia constructiva moderna."
+    },
+    "faqSection": {
+      "title": "Preguntas Frecuentes al Construir su Nuevo Tejado",
+      "faqs": [
+        { "q": "¿Cuánto tiempo real calculan que se tarda en finalizar y construir por completo un tejado nuevo de obra?", "a": "Nótese que dependiendo fundamentalmente de los metros totales de área y el grado de complejidad estructural asociado, la reconstrucción íntegra completa suele variar generalmente entre 2 y 4 semanas para una vivienda unifamiliar común y corriente." },
+        { "q": "¿Se necesita contar obligatoriamente con el visto bueno de un arquitecto así como un proyecto técnico redactado para proceder en realidad a una renovación masiva de mi cubierta particular?", "a": "De acuerdo con el código civil, siempre y cuando se pretenda alterar de forma efectiva y tangible la pendiente inclinada original, la cota en altura, o se pretenda intervenir sustancialmente en elementos de carga principales tales como la gran viguería madre, la normativa actual en todo caso demanda fehacientemente disponer de un proyecto de ejecución visado. Por nuestra parte además solemos y ciertamente nos encargamos encantados de guiarle paso a paso superando así todo el engorroso proceso inicial." },
+        { "q": "¿Realmente es legal, viable y aconsejable reemplazar una vieja cubierta de pesada teja por el conocido y popular hoy en día panel sándwich de imitación a teja convencional?", "a": "Sí, además aseveramos que resulta ser una variante verdaderamente atractiva y considerablemente cada vez más en boga. Sobre todo suele ser ampliamente demandada de cara a quitar toda esa brutal carga muerta que pesa y descansa en estructuras envejecidas e inseguras, proporcionando como tremendo bono una notabilísima y evidente contribución muy deseada a elevar la propia insonorización, mejorando abrumadoramente en último grado y a largo plazo todo factor de relativo aislamiento ambiental." },
+        { "q": "¿En concreto qué tipo o marco general de avales o garantías por escrito formales de la ley llegan verdaderamente a brindarnos al concluir el nuevo encargo estipulado en este sector?", "a": "Todos los tejados resultantes de nuestra fina construcción como obra nueva y las rehabilitaciones globales plenas cuentan con su respectiva garantía estructural robusta adjuntada a una promesa real enfocada a certificar la estanqueidad. Esto obedece ciegamente y no es más que el amparo cabal ordenado sin recortes bajo los preceptivos lineamientos legales y marcos por donde rige el código técnico de turno hoy por hoy, por consiguiente abarcará de inicio o de punto de salida periodos legales básicos prolongados inalterablemente que alcanzan su cuota tope legal hasta en 10 sólidos y ventajosos años." }
+      ]
+    }
+  }
+]

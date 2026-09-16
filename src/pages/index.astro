@@ -1,0 +1,148 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.jsx";
+import HomeContent from "../components/HomeContent.jsx";
+import { formatSiteName, safeAlt, responsiveImage, HERO_SIZES } from '../lib/site.js'
+import {
+  getHomePage,
+  getAnalyticContacts,
+  getMenu,
+  getProjects,
+  getBlogs,
+  STRAPI_URL,
+} from "../lib/strapi.js";
+Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=600");
+
+let homeData = null;
+let contactData = null;
+let menuData = null;
+let projectsData = [];
+let blogsData = [];
+
+try {
+  [homeData, contactData, menuData, projectsData, blogsData] = await Promise.all([
+    getHomePage(),
+    getAnalyticContacts(),
+    getMenu(),
+    getProjects(),
+    getBlogs(),
+  ]);
+} catch (error) {
+  console.error("Error fetching data:", error);
+}
+
+const site = String(
+  contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? "burgos",
+);
+
+if (homeData) {
+  if (homeData.projects) {
+    homeData.projects.list = projectsData && projectsData.length > 0
+      ? projectsData.slice(0, 3).map((p) => ({
+          title: p.title,
+          description: p.description || "",
+          url: `/proyectos/${p.slug}`,
+          image: p.coverImg
+            ? {
+                url: p.coverImg.url,
+                alt: safeAlt(p.coverImg.alternativeText, site) || p.title,
+              }
+            : { url: "/assets/home/home-section3.webp", alt: p.title },
+          altImage: p.coverImgAlt || null,
+          captionImage: p.coverImgCaption || null,
+        }))
+      : [];
+  }
+
+  const posts = blogsData || [];
+  if (homeData.blog && posts.length > 0) {
+    const currentSite = site.toLowerCase();
+    homeData.blog.articles = posts.map((p) => ({
+      title: p.title,
+      description: p.excerpt || "",
+      date: p.date,
+      url: `/blog/${(p.slug || '').replace(`${currentSite}-`, '')}`,
+      image: p.coverImg ? { url: p.coverImg, alt: p.title } : null,
+      altImage: p.coverImgAlt || null,
+      captionImage: p.coverImgCaption || null,
+    }));
+    homeData.blog.featured = null;
+  }
+}
+
+const phone =
+  contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? "+34 123 456 789";
+const email =
+  contactData?.email ??
+  import.meta.env.PUBLIC_EMAIL ??
+  `contacto@tejados${site}.es`;
+const waLink = contactData?.waLink;
+const socials = contactData?.socials;
+
+// The hero is the LCP element. Preload exactly what HomeContent renders — the
+// same media object through the same helper, so the preload and the <img> land
+// on one identical srcset; otherwise the preload fetches a second, unused file
+// and steals bandwidth from the image the page actually paints.
+const heroImgInfo = homeData?.hero?.image;
+const heroPreload = heroImgInfo ? responsiveImage(heroImgInfo, HERO_SIZES, STRAPI_URL) : null;
+
+const siteName = formatSiteName(site);
+const pageTitle = homeData?.metaTitle || `Reparación e Impermeabilización de Tejados en ${siteName} | Profesionales`;
+const ogImageRaw = homeData?.ogImage?.url;
+const ogImageUrl = ogImageRaw
+  ? (ogImageRaw.startsWith("http") ? ogImageRaw : `${STRAPI_URL}${ogImageRaw}`)
+  : undefined;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={homeData?.metaDescription || undefined}
+  keywords={homeData?.metaKeywords || undefined}
+  canonicalUrl={homeData?.canonicalUrl || undefined}
+  ogTitle={homeData?.ogTitle || undefined}
+  ogDescription={homeData?.ogDescription || undefined}
+  ogImage={ogImageUrl}
+  site={site}
+  phone={phone}
+  email={email}
+  jsonLd={homeData?.jsonLd}
+  breadcrumbs={[{ name: 'Inicio', url: '/' }]}
+>
+  {/* Warms the LCP image. imagesrcset/imagesizes repeat what the <img> will
+      declare, so the browser preloads the one candidate it is going to pick
+      rather than the largest one and then a second file. */}
+  {
+    heroPreload?.src && (
+      <link
+        rel="preload"
+        as="image"
+        href={heroPreload.src}
+        imagesrcset={heroPreload.srcSet}
+        imagesizes={heroPreload.sizes}
+        fetchpriority="high"
+        slot="head"
+      />
+    )
+  }
+  <Navbar
+    client:load
+    site={site}
+    phone={phone}
+    email={email}
+    waLink={waLink}
+    socials={socials}
+    data={menuData}
+  />
+  <main>
+    <HomeContent
+      client:idle
+      site={site}
+      data={homeData}
+      apiUrl={STRAPI_URL}
+      phone={phone}
+      email={email}
+      waLink={waLink}
+      socials={socials}
+    />
+  </main>
+</BaseLayout>

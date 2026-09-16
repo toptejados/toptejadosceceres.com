@@ -1,0 +1,68 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.jsx";
+import BlogContent from "../components/BlogContent.jsx";
+import { getAnalyticContacts, getMenu, getBlogs } from "../lib/strapi.js";
+import { formatSiteName, composeTitle } from '../lib/site.js'
+
+let contactData = null;
+let menuData = null;
+let blogsData = [];
+
+try {
+  contactData = await getAnalyticContacts();
+  menuData = await getMenu();
+  blogsData = await getBlogs();
+} catch (error) {
+  console.error("Error fetching contact data:", error);
+}
+
+const site = String(
+  contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? "burgos",
+);
+const phone =
+  contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? "+34 123 456 789";
+const email =
+  contactData?.email ??
+  import.meta.env.PUBLIC_EMAIL ??
+  `contacto@tejados${site}.es`;
+const waLink = contactData?.waLink;
+const socials = contactData?.socials;
+
+const siteName = formatSiteName(site);
+
+// Use featured post's SEO if available, else generic listing meta
+const featured = blogsData?.[0];
+const pageTitle = featured?.metaTitle || composeTitle('Blog de Tejados', [`Top Tejados ${siteName}`, 'Consejos y Noticias']);
+const pageDesc = featured?.metaDescription || `Artículos y consejos sobre tejados, impermeabilización, canalones y reformas en ${siteName}. Blog de expertos en cubiertas.`;
+const pageOgTitle = featured?.ogTitle || undefined;
+const pageOgDesc = featured?.ogDescription || undefined;
+// Falls back to the newest post's cover so the blog index shares as a card with
+// an image rather than a bare text preview (and so BaseLayout emits
+// twitter:card summary_large_image instead of "summary").
+const pageOgImage = featured?.ogImage ?? featured?.coverImg ?? undefined;
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDesc}
+  ogTitle={pageOgTitle}
+  ogDescription={pageOgDesc}
+  ogImage={pageOgImage}
+  site={site}
+  phone={phone}
+  email={email}
+>
+  <Navbar
+    client:load
+    site={site}
+    phone={phone}
+    email={email}
+    waLink={waLink}
+    socials={socials}
+    data={menuData}
+  />
+  <main>
+    <BlogContent client:idle posts={blogsData} />
+  </main>
+</BaseLayout>

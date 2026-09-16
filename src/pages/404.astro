@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Navbar from '../components/Navbar.jsx'
+import { getAnalyticContacts, getMenu } from '../lib/strapi.js'
+import { formatSiteName } from '../lib/site.js'
+
+// Rendered with a real 404 status — dynamic routes rewrite here instead of
+// 302-redirecting, so crawlers see one clean "not found" response.
+Astro.response.status = 404
+Astro.response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=300')
+
+let contactData = null
+let menuData = null
+try {
+  [contactData, menuData] = await Promise.all([
+    getAnalyticContacts().catch(() => null),
+    getMenu().catch(() => null),
+  ])
+} catch { /* page must render even if Strapi is down */ }
+
+const site = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'madrid')
+const siteName = formatSiteName(site)
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '+34 123 456 789'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${site}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+---
+
+<BaseLayout
+  title={`Página no encontrada | Top Tejados ${siteName}`}
+  description="La página que buscas no existe o ha sido movida."
+  site={siteName}
+  phone={phone}
+  email={email}
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+  </Fragment>
+  <Navbar client:load site={siteName} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+  <main>
+    <section class="min-h-[70vh] flex items-center justify-center px-6 py-24 bg-white">
+      <div class="max-w-xl mx-auto text-center">
+        <p class="inline-block bg-[#F1BF00] text-[#11181C] text-[12px] font-bold uppercase tracking-wide rounded-full px-4 py-1.5 mb-6">
+          Error 404
+        </p>
+        <p class="font-bold text-[#24274D] leading-none mb-4" style="font-size: clamp(88px, 18vw, 160px);">
+          404
+        </p>
+        <h1 class="text-[26px] md:text-[32px] font-medium text-[#11181C] mb-4">
+          Página no encontrada
+        </h1>
+        <p class="text-[15px] text-slate-600 leading-relaxed mb-10">
+          Lo sentimos, la página que buscas no existe o ha sido movida.
+          Vuelve al inicio o contáctanos si necesitas ayuda con tu tejado en {siteName}.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="/"
+            class="inline-flex items-center justify-center gap-2 bg-[#24274D] hover:bg-[#1b1e3d] text-white text-[14px] font-semibold rounded-lg px-7 py-3.5 transition-colors"
+          >
+            Volver al inicio
+          </a>
+          <a
+            href="/contacto"
+            class="inline-flex items-center justify-center gap-2 border border-[#24274D] text-[#24274D] hover:bg-[#24274D] hover:text-white text-[14px] font-semibold rounded-lg px-7 py-3.5 transition-colors"
+          >
+            Contactar
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

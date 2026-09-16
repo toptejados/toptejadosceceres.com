@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import Navbar from '../../components/Navbar.jsx'
+import ProjectsContent from '../../components/ProjectsContent.jsx'
+import { getProjects, getAnalyticContacts, getMenu, STRAPI_URL } from '../../lib/strapi.js'
+import projectsData from '../../data/projects.json'
+import { formatSiteName } from '../../lib/site.js'
+
+export const prerender = false;
+
+const { slug } = Astro.params;
+
+Astro.response.headers.set("Cache-Control", "public, max-age=60, s-maxage=300, stale-while-revalidate=600");
+
+let strapiProjects = []
+let contactData = null
+let menuData = null
+
+try {
+  [strapiProjects, contactData, menuData] = await Promise.all([
+    getProjects(),
+    getAnalyticContacts(),
+    getMenu()
+  ])
+} catch (error) {
+  console.error('Error fetching data:', error)
+}
+
+const currentSite = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'burgos').toLowerCase();
+const p = strapiProjects.find(z => z.slug === `${currentSite}-${slug}` || z.slug === slug)
+
+if (!p) {
+  return Astro.rewrite('/404')
+}
+
+const project = {
+  id: p.id,
+  slug: p.slug,
+  category: p.category,
+  title: p.title,
+  location: p.location,
+  date: p.date,
+  description: p.description,
+  coverImg: p.coverImg?.url ? `${STRAPI_URL}${p.coverImg.url}` : '',
+  images: (p.images ?? []).map(img => `${STRAPI_URL}${img.url}`),
+}
+
+const site = currentSite
+const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '614 005 281'
+const email = contactData?.email ?? import.meta.env.PUBLIC_EMAIL ?? `contacto@tejados${site}.es`
+const waLink = contactData?.waLink
+const socials = contactData?.socials
+
+const uiData = {
+  pageTitle: projectsData.pageTitle,
+  detailPage: projectsData.detailPage,
+  cta: projectsData.cta,
+}
+
+// Unique meta description per project — first ~155 chars of its description,
+// falling back to a templated line so it never inherits the site-wide default.
+const rawDesc = (project.description || '').replace(/\s+/g, ' ').trim()
+const metaDescription = rawDesc
+  ? (rawDesc.length > 155 ? `${rawDesc.slice(0, 152).trimEnd()}…` : rawDesc)
+  : `${project.title} en ${project.location || formatSiteName(site)}. Proyecto realizado por Top Tejados ${formatSiteName(site)}. Presupuesto sin compromiso.`
+---
+
+<BaseLayout title={`${project.title} | Proyectos | Tejados ${formatSiteName(site)}`} description={metaDescription} site={site} phone={phone} email={email}>
+  <Navbar client:load site={site} phone={phone} email={email} waLink={waLink} socials={socials} data={menuData} />
+  <main>
+    <ProjectsContent client:idle project={project} uiData={uiData} site={site} phone={phone} email={email} waLink={waLink} socials={socials} />
+  </main>
+</BaseLayout>

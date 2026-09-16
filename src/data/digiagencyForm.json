@@ -1,0 +1,18 @@
+{
+  "data": {
+    "attributes": {
+      "site": "madrid",
+      "waLink": "https://wa.me/34123456789",
+      "phone": "+34 123 456 789",
+      "email": "toptejadossur@gmail.com",
+      "socials": {
+        "twitter": "@tejadosmadrid",
+        "facebook": "https://www.facebook.com/tejadosmadrid",
+        "linkedin": "https://www.linkedin.com/company/tejadosmadrid",
+        "instagram": "#",
+        "youtube": "#"
+      }
+    },
+    "meta": {}
+  }
+}

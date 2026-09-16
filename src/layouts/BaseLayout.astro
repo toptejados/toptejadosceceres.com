@@ -1,0 +1,331 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css'
+import Footer from '../components/Footer.jsx'
+import CookieConsent from '../components/CookieConsent.jsx'
+import { getFooter, getAnalyticContacts } from '../lib/strapi.js'
+import { formatSiteName, responsiveImage, LOGO_SIZES } from '../lib/site.js'
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+  canonicalUrl?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+  site?: string;
+  phone?: string;
+  email?: string;
+  jsonLd?: object | object[];
+  breadcrumbs?: Array<{ name: string; url: string }>;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  canonicalUrl: propCanonicalUrl,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  site: propSite,
+  phone: propPhone,
+  email: propEmail,
+  jsonLd,
+  breadcrumbs,
+} = Astro.props;
+
+const site = String(propSite || import.meta.env.PUBLIC_SITE_SLUG || 'burgos');
+
+// tracking initialization and SEO data fetching
+let tracking: Record<string, any> = {};
+const strapiUrl = import.meta.env.STRAPI_URL || 'https://strapi.digiagency.net';
+
+// `site` prop is often the display name ("Tarragona") but Strapi stores the
+// lowercase slug — filter with the slug or the tracking entry never matches.
+const siteSlug = (import.meta.env.PUBLIC_SITE_SLUG || site || '').toLowerCase().replace(/\s+/g, '-');
+const [trackingRes, footerData, contactInfo] = await Promise.all([
+  fetch(`${strapiUrl}/api/analytic-seos?filters[site][$eq]=${siteSlug}`).catch(e => {
+    console.error("Failed to fetch SEO data:", e);
+    return null;
+  }),
+  getFooter(),
+  getAnalyticContacts().catch(e => {
+    console.error("Failed to fetch contact data:", e);
+    return null;
+  }),
+]);
+
+let globalJsonLd: object[] = [];
+if (trackingRes && trackingRes.ok) {
+  try {
+    const data = await trackingRes.json();
+    if (data.data && data.data.length > 0) {
+      tracking = data.data[0];
+      if (tracking.jsonLd) {
+        globalJsonLd = Array.isArray(tracking.jsonLd) ? tracking.jsonLd : [tracking.jsonLd];
+      }
+    }
+  } catch (e) {
+    console.error("Failed to parse SEO data:", e);
+  }
+}
+
+// Fallbacks to environment variables if data is missing or fetch fails
+tracking = {
+  ga4: tracking.ga4 || import.meta.env.PUBLIC_GA4 || '',
+  gtm: tracking.gtm || import.meta.env.PUBLIC_GTM || '',
+  gsc: tracking.gsc || import.meta.env.PUBLIC_GSC || '',
+  microsoftClarity: tracking.microsoftClarity || import.meta.env.PUBLIC_MICROSOFT_CLARITY || '',
+  facebookPixel: tracking.facebookPixel || import.meta.env.PUBLIC_FACEBOOK_PIXEL || '',
+  ahrefsTag: tracking.ahrefsTag || import.meta.env.PUBLIC_AHREFS_TAG || '',
+  semrushTag: tracking.semrushTag || import.meta.env.PUBLIC_SEMRUSH_TAG || '',
+  landingPages: tracking.landingPages || import.meta.env.PUBLIC_LANDING_PAGES || '',
+  interlinking: tracking.interlinking || import.meta.env.PUBLIC_INTERLINKING || '',
+  metaKeywords: tracking.metaKeywords || '',
+  permalink: tracking.permalink || '',
+};
+
+const phone = propPhone || contactInfo?.phone || import.meta.env.PUBLIC_PHONE || '';
+const email = propEmail || contactInfo?.email || import.meta.env.PUBLIC_EMAIL || '';
+const waLink = contactInfo?.waLink || `https://api.whatsapp.com/send/?phone=${phone.replace(/[\s+]/g, '')}&text&type=phone_number&app_absent=0`;
+
+const defaultPrimary = site === 'burgos' ? '#0f172a' : '#1e3a8a';
+const defaultSecondary = site === 'burgos' ? '#1e293b' : '#1e40af';
+
+const primaryColor = import.meta.env.PUBLIC_PRIMARY_COLOR || defaultPrimary;
+const secondaryColor = import.meta.env.PUBLIC_SECONDARY_COLOR || defaultSecondary;
+
+// Same helper, same `sizes` as the <img> in Navbar and Footer, so the preload
+// warms the exact candidate the browser is going to pick. Preloading a bare
+// URL here while the <img> resolved a srcset was two downloads of one logo.
+const logoPreload = footerData?.logo?.url
+  ? responsiveImage(footerData.logo, LOGO_SIZES)
+  : null;
+
+const siteName = formatSiteName(site, 'España');
+
+// The legal business behind this deployment. `site`/`siteName` follow whatever
+// the page passes (a city on service routes), so anything naming the company
+// has to come from the deployment's own slug instead.
+const businessName = `Top Tejados ${formatSiteName(siteSlug, 'España')}`;
+
+const metaDescription = description ??
+  `Empresa especializada en reparación, impermeabilización y rehabilitación de tejados en ${siteName}. Más de 15 años de experiencia. Presupuesto sin compromiso.`;
+
+// Canonical origin: prefer the real request host — on production that is the
+// final (post-redirect) domain of whichever site this template serves, so no
+// per-site config can get it wrong. Strapi permalink / env are fallbacks for
+// dev and preview deployments (localhost / *.vercel.app are never canonical).
+const _reqHost = Astro.url.hostname;
+const _reqIsReal = Astro.url.protocol === 'https:' && !/(^localhost$|^127\.|\.vercel\.app$)/.test(_reqHost);
+const _base = (_reqIsReal ? Astro.url.origin : null) || tracking.permalink || import.meta.env.PUBLIC_SITE_URL || Astro.site?.toString() || 'https://tejados-web.vercel.app';
+let canonicalURL = propCanonicalUrl
+  ? (propCanonicalUrl.startsWith('http') ? new URL(propCanonicalUrl) : new URL(propCanonicalUrl, _base))
+  : new URL(Astro.url.pathname, _base);
+// Canonicals must point at the exact indexable URL. Strapi entries store full
+// canonicalUrl strings that often carry a stale host (non-www) and trailing
+// slashes — both redirect, which gets every page flagged as "canonicalised"
+// and the canonical potentially ignored. Keep the entry's path but force the
+// site's real origin (permalink), strip trailing slash (except root) and any
+// query/hash.
+canonicalURL = new URL(canonicalURL.pathname, _base);
+if (canonicalURL.pathname !== '/' && canonicalURL.pathname.endsWith('/')) {
+  canonicalURL.pathname = canonicalURL.pathname.replace(/\/+$/, '');
+}
+canonicalURL.search = '';
+canonicalURL.hash = '';
+
+// Build JSON-LD schemas array — global first, then page-level (dedup by @type, global wins), then auto
+const globalTypes = new Set(
+  globalJsonLd.flatMap((s: any) => Array.isArray(s['@type']) ? s['@type'] : [s['@type']]).filter(Boolean)
+);
+const allSchemas: object[] = [...globalJsonLd];
+if (jsonLd) {
+  const passed = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
+  for (const schema of passed) {
+    const types: string[] = Array.isArray((schema as any)['@type'])
+      ? (schema as any)['@type']
+      : [(schema as any)['@type']].filter(Boolean);
+    if (types.length === 0 || types.every(t => !globalTypes.has(t))) allSchemas.push(schema);
+  }
+}
+allSchemas.push({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": metaDescription,
+  "url": canonicalURL.toString(),
+  "inLanguage": "es-ES"
+});
+if (breadcrumbs && breadcrumbs.length > 0) {
+  allSchemas.push({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": breadcrumbs.map((crumb, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": crumb.name,
+      "item": crumb.url.startsWith('http') ? crumb.url : new URL(crumb.url, _base).toString()
+    }))
+  });
+}
+
+// Google Consent Mode v2 + GTM/GA4 loaders run unconditionally in <head> so
+// verification/tag-checker tools (Tag Assistant, GTM preview, Ahrefs site
+// audit) see the install on first load. Consent granted by default here.
+const consentDefaultScript = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'ad_storage': 'granted',
+    'analytics_storage': 'granted',
+    'ad_user_data': 'granted',
+    'ad_personalization': 'granted'
+  });
+`;
+const gtmScript = tracking.gtm ? `
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${tracking.gtm}');
+` : '';
+const ga4ConfigScript = tracking.ga4 ? `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', '${tracking.ga4}');
+` : '';
+const semrushScript = tracking.semrushTag ? `
+  (function() {
+    var s = document.createElement('script');
+    s.src = 'https://www.semrush.com/ssa/tracking.js?key=${tracking.semrushTag}';
+    s.async = true;
+    document.head.appendChild(s);
+  })();
+` : '';
+---
+<!DOCTYPE html>
+<html lang="es" class="overflow-x-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    {tracking.gsc && (
+      <meta name="google-site-verification" content={tracking.gsc} />
+    )}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Primary SEO -->
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    {/* No <meta name="keywords">. Google has ignored it since 2009 and states
+        so publicly; Bing treats stuffing it as a negative signal. It was being
+        filled with a generated keyword list on every page, which is the exact
+        pattern that reads as spam. */}
+    <meta name="robots" content="index, follow" />
+    {/* Attribution belongs to the client business, not the agency that built
+        the site. Derived from the deployment slug, NOT from `siteName`: on a
+        /{servicio}/{ciudad} route the `site` prop is the city, which would have
+        credited the page to "Top Tejados Santander" — a business that does not
+        exist. The business is the province operator. */}
+    <meta name="author" content={businessName} />
+    <meta name="publisher" content={businessName} />
+    <link rel="canonical" href={canonicalURL.toString()} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL.toString()} />
+    <meta property="og:title" content={ogTitle || title} />
+    <meta property="og:description" content={ogDescription || metaDescription} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content={`Top Tejados ${siteName}`} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {ogImage && <meta property="og:image:width" content="1200" />}
+    {ogImage && <meta property="og:image:height" content="630" />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:title" content={ogTitle || title} />
+    <meta name="twitter:description" content={ogDescription || metaDescription} />
+    {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+    {/* Preload the exact URL Navbar and Footer request, so the logo is warmed
+        rather than downloaded twice under two different URLs. */}
+    {logoPreload?.src && (
+      <link
+        rel="preload"
+        as="image"
+        href={logoPreload.src}
+        imagesrcset={logoPreload.srcSet}
+        imagesizes={logoPreload.sizes}
+        fetchpriority="high"
+      />
+    )}
+
+    <style is:global define:vars={{ primaryColor, secondaryColor }}>
+      :root {
+        --primary-color: var(--primaryColor);
+        --secondary-color: var(--secondaryColor);
+      }
+    </style>
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(allSchemas, null, 2)} />
+
+    <!-- Tracking: unconditional install so verification tools detect the tag,
+         Consent Mode v2 keeps actual data collection gated on user accept -->
+    {(tracking.ga4 || tracking.gtm) && (
+      <script is:inline set:html={consentDefaultScript} />
+    )}
+    {tracking.gtm && (
+      <script is:inline set:html={gtmScript} />
+    )}
+    {tracking.ga4 && (
+      <>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${tracking.ga4}`}></script>
+        <script is:inline set:html={ga4ConfigScript} />
+      </>
+    )}
+    {tracking.ahrefsTag && (
+      <script is:inline async src="https://analytics.ahrefs.com/analytics.js" data-key={tracking.ahrefsTag}></script>
+    )}
+    {tracking.semrushTag && (
+      <script is:inline set:html={semrushScript} />
+    )}
+
+    <slot name="head" />
+
+
+  </head>
+  <body class="bg-white text-slate-900 overflow-x-hidden">
+    {tracking.gtm && (
+      <noscript>
+        <iframe src={`https://www.googletagmanager.com/ns.html?id=${tracking.gtm}`} height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      </noscript>
+    )}
+    <slot />
+    <Footer client:visible site={site} phone={phone} email={email} data={footerData} contact={contactInfo} />
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href={waLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-[99] bg-[#25D366] text-white p-3.5 rounded-full shadow-[0_8px_24px_rgba(37,211,102,0.4)] hover:bg-[#20bd5a] hover:scale-110 hover:-translate-y-1 hover:shadow-[0_12px_28px_rgba(37,211,102,0.5)] transition-all duration-300 flex items-center justify-center group"
+      aria-label="Contactar por WhatsApp"
+    >
+      <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.663-2.06-.173-.299-.018-.461.13-.611.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
+    </a>
+    <CookieConsent client:load tracking={{
+      microsoftClarity: tracking.microsoftClarity || null,
+      facebookPixel: tracking.facebookPixel || null,
+    }} />
+  </body>
+</html>

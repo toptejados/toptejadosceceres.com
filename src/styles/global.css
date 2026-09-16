@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #24274D;
+  --color-card-bg: #EFF5F8;
+  --color-heading-dark: #11181C;
+
+  /* One content column for the whole site.
+   *
+   * Section wrappers had drifted across six different widths — max-w-7xl
+   * (1280), 6xl (1152), 5xl (1024), [1140px], [1100px], [1400px] — so on a wide
+   * screen the left edge moved on almost every section, and the header spanned
+   * 1400 while the content under it sat at 896-1280. The reference site
+   * (toptejadosmadrid.com) holds a single 1140px column for header and body
+   * alike, which is what these sites are supposed to look like.
+   *
+   * Collapsing the three wide Tailwind steps onto 1140 fixes every section at
+   * once without touching ~60 class attributes. The narrower steps are left
+   * alone on purpose: max-w-4xl and below are reading-width limiters on prose
+   * and comparison blocks, and widening those would hurt legibility rather
+   * than help it. */
+  --container-5xl: 1140px;
+  --container-6xl: 1140px;
+  --container-7xl: 1140px;
+}
+
+body {
+  font-family: 'Inter Variable', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
