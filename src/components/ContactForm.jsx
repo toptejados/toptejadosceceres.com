@@ -16,7 +16,7 @@ export default function ContactForm({ site, strapiUrl }) {
     setStatus('loading')
 
     try {
-      const response = await fetch(`${strapiUrl}/api/contancts`, {
+      const response = await fetch(`${strapiUrl}/api/contact-forms`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
