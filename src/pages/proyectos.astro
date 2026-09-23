@@ -38,6 +38,9 @@ if (strapiProjects && strapiProjects.length > 0) {
   }))
 }
 
+if (projects.length === 0) {
+  return Astro.rewrite('/404')
+}
 
 const site = String(contactData?.site ?? import.meta.env.PUBLIC_SITE_SLUG ?? 'burgos')
 const phone = contactData?.phone ?? import.meta.env.PUBLIC_PHONE ?? '614 005 281'
