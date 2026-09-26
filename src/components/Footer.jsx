@@ -165,7 +165,7 @@ export default function Footer({ site, phone, email, data, contact }) {
         <nav aria-label="Servicios" className="flex-1 px-8 md:px-12 py-14">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
             {serviceColumns.map((col, ci) => (
-              <div key={ci}>
+              <div key={ci} className="min-w-0">
                 <p className="text-[13px] font-semibold tracking-[0.12em] uppercase text-white mb-6">
                   {col.title}
                 </p>
