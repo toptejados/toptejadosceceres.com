@@ -5,25 +5,33 @@ const STRAPI_URL = import.meta.env.STRAPI_URL || 'https://strapi.digiagency.net'
 const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
 const SITE_SLUG = import.meta.env.PUBLIC_SITE_SLUG || 'madrid';
 
-async function getSitePermalink(fallback: string): Promise<string> {
+async function getSiteSeo(): Promise<{ permalink?: string; llmsTxt?: string }> {
   try {
-    const res = await fetch(`${STRAPI_URL}/api/analytic-seos?filters[site][$eq]=${SITE_SLUG}&fields[0]=permalink`, {
+    const res = await fetch(`${STRAPI_URL}/api/analytic-seos?filters[site][$eq]=${SITE_SLUG}&fields[0]=permalink&fields[1]=llmsTxt`, {
       headers: { 'Content-Type': 'application/json', ...(STRAPI_TOKEN && { Authorization: `Bearer ${STRAPI_TOKEN}` }) },
     });
     if (res.ok) {
       const data = await res.json();
-      const permalink = data?.data?.[0]?.permalink;
-      if (permalink) return permalink.replace(/\/$/, '');
+      return data?.data?.[0] || {};
     }
   } catch {}
-  return fallback;
+  return {};
 }
 
 export const GET: APIRoute = async ({ site, url }) => {
   // Prefer the real request origin — same rule as BaseLayout canonicals.
   const reqIsReal = url.protocol === 'https:' && !/(^localhost$|^127\.|\.vercel\.app$)/.test(url.hostname);
   const envBase = (import.meta.env.PUBLIC_SITE_URL ?? site?.toString() ?? '').replace(/\/$/, '');
-  const base = reqIsReal ? url.origin : await getSitePermalink(envBase);
+  // Strapi's llmsTxt (analytic-seo) wins when set; empty = generated default below.
+  // Always fetched (even on real requests) so the override applies in prod too.
+  const seo = await getSiteSeo();
+  if (seo.llmsTxt && seo.llmsTxt.trim()) {
+    return new Response(seo.llmsTxt.trim() + '\n', {
+      headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+    });
+  }
+
+  const base = reqIsReal ? url.origin : (seo.permalink?.replace(/\/$/, '') || envBase);
   const siteSlug = import.meta.env.PUBLIC_SITE_SLUG || 'madrid';
   const siteName = formatSiteName(siteSlug);
 
