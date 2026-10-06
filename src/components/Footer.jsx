@@ -19,7 +19,7 @@ function SocialIcon({ name }) {
   if (!icon) {
     return <span className="text-[13px] font-semibold uppercase">{(name || '?').slice(0, 2)}</span>
   }
-  return <svg viewBox="0 0 256 256" fill="currentColor" className="w-[18px] h-[18px]">{icon}</svg>
+  return <svg viewBox="0 0 256 256" fill="currentColor" className="w-[15px] h-[15px]">{icon}</svg>
 }
 
 // Default footer service catalog — used when the Strapi footer entry has no
@@ -101,72 +101,81 @@ export default function Footer({ site, phone, email, data, contact }) {
     ? data.serviceColumns
     : defaultServiceColumns(siteSlug)
 
+  // "Nosotros" link (/about) is hidden for now. To bring it back, prepend
+  // { name: 'Nosotros', url: '/about' } here, left of Aviso Legal.
+  const bottomLinks = legalLinks || []
+
   return (
     <footer className="bg-[#131749] text-white">
-      <div className="max-w-[1140px] mx-auto flex flex-col lg:flex-row">
+      {/* ── Top: brand column | service columns ── */}
+      <div className="flex flex-col lg:flex-row border-b border-white">
 
-        {/* ── Left: brand / address / socials / map ── */}
-        <div className="w-full lg:w-[360px] shrink-0 px-8 md:px-12 py-12 lg:border-r border-white/15 flex flex-col gap-5">
-          <a href="/" className="inline-block" aria-label={displayBrand}>
-            <img
-              {...(logo?.url
-                ? responsiveImage(logo, LOGO_SIZES)
-                : { src: '/assets/logo.webp', width: 200, height: 60 })}
-              {...(logo?.srcSet ? { srcSet: logo.srcSet } : {})}
-              alt={logo?.altImage || `${logo?.altPrefix || 'Tejados'} ${siteName}`}
-              className="w-[115px] h-auto object-contain brightness-0 invert"
-              loading="lazy"
-            />
-          </a>
+        {/* Left: logo / brand / address / socials / map */}
+        <div className="w-full lg:w-[444px] lg:shrink-0 px-6 md:px-12 lg:pl-[88px] lg:pr-[57px] pt-12 pb-10 lg:pt-[75px] lg:pb-[60px] border-b lg:border-b-0 lg:border-r border-white">
+          <div className="flex flex-col gap-6 w-full max-w-[299px]">
+            <div className="flex flex-col gap-5">
+              <a href="/" className="inline-block self-start" aria-label={displayBrand}>
+                <img
+                  {...(logo?.url
+                    ? responsiveImage(logo, LOGO_SIZES)
+                    : { src: '/assets/logo.webp', width: 200, height: 60 })}
+                  {...(logo?.srcSet ? { srcSet: logo.srcSet } : {})}
+                  alt={logo?.altImage || `${logo?.altPrefix || 'Tejados'} ${siteName}`}
+                  className="w-[80px] h-auto object-contain brightness-0 invert"
+                  loading="lazy"
+                />
+              </a>
 
-          <div className="flex flex-col gap-2">
-            <p className="flex items-center gap-2 text-[14px] font-medium text-white">
-              <svg viewBox="0 0 30 20" className="w-[20px] h-[14px] rounded-[2px] shrink-0" aria-hidden="true">
-                <rect width="30" height="20" fill="#AA151B" />
-                <rect y="5" width="30" height="10" fill="#F1BF00" />
-              </svg>
-              {displayBrand}
-            </p>
-            {address && (
-              <p className="text-[13px] text-white/80 leading-relaxed">{address}</p>
-            )}
-          </div>
-
-          {socialLinks.length > 0 && (
-            <div className="flex items-center gap-4">
-              {socialLinks.map(soc => (
-                <a
-                  key={soc.name}
-                  href={soc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={soc.name}
-                  className="text-white/80 hover:text-white transition-colors"
-                >
-                  <SocialIcon name={soc.name} />
-                </a>
-              ))}
+              <div className="flex flex-col gap-2">
+                <p className="flex items-center gap-2 text-[14px] leading-[1.2] text-white">
+                  <svg viewBox="0 0 30 20" className="w-[26px] h-[18px] rounded-[2px] shrink-0" aria-hidden="true">
+                    <rect width="30" height="20" fill="#AA151B" />
+                    <rect y="5" width="30" height="10" fill="#F1BF00" />
+                  </svg>
+                  {displayBrand}
+                </p>
+                {address && (
+                  <p className="text-[12px] leading-[18px] text-white">{address}</p>
+                )}
+              </div>
             </div>
-          )}
 
-          <div className="rounded-[8px] overflow-hidden w-full max-w-[280px] h-[140px] relative border border-white/10">
-            <iframe
-              src={mapSrc}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              title={`Ubicación ${displayBrand}`}
-              loading="lazy"
-            />
+            {socialLinks.length > 0 && (
+              <div className="flex items-center gap-2">
+                {socialLinks.map(soc => (
+                  <a
+                    key={soc.name}
+                    href={soc.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={soc.name}
+                    className="text-white hover:text-white/70 transition-colors"
+                  >
+                    <SocialIcon name={soc.name} />
+                  </a>
+                ))}
+              </div>
+            )}
+
+            <div className="rounded-[8px] overflow-hidden w-full h-[105px] relative">
+              <iframe
+                src={mapSrc}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                title={`Ubicación ${displayBrand}`}
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
-        {/* ── Right: main service link columns ── */}
-        <nav aria-label="Servicios" className="flex-1 px-8 md:px-12 py-14">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-10">
+        {/* Right: main service link columns */}
+        <nav aria-label="Servicios" className="flex-1 min-w-0 px-6 md:px-12 xl:px-14 pt-10 pb-12 lg:pt-[75px] lg:pb-[60px]">
+          <div className="max-w-[926px] mx-auto grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-10 2xl:gap-x-16 gap-y-10">
             {serviceColumns.map((col, ci) => (
               <div key={ci} className="min-w-0">
-                <p className="text-[13px] font-semibold tracking-[0.12em] uppercase text-white mb-6">
+                <p className="text-[14px] leading-[18px] font-medium uppercase text-white mb-6 break-words">
                   {col.title}
                 </p>
                 <ul className="flex flex-col gap-4">
@@ -174,7 +183,7 @@ export default function Footer({ site, phone, email, data, contact }) {
                     <li key={l.name}>
                       <a
                         href={l.url || '#'}
-                        className="text-[13.5px] text-white/85 hover:text-white transition-colors leading-relaxed"
+                        className="text-[12px] leading-[18px] text-white hover:text-white/70 transition-colors"
                       >
                         {l.name}
                       </a>
@@ -188,25 +197,24 @@ export default function Footer({ site, phone, email, data, contact }) {
       </div>
 
       {/* ── Bottom bar ── */}
-      <div className="border-t border-white/15">
-        <div className="max-w-[1140px] mx-auto px-8 md:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[13px] text-white/70">
-            {copyright?.prefix || '©'} {currentYear} {displayBrand}
-          </p>
-          {legalLinks?.length > 0 && (
-            <div className="flex items-center flex-wrap gap-6">
-              {legalLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.url}
-                  className="text-[13px] text-white/70 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
+      {/* Extra padding keeps the floating WhatsApp button off the links (bottom on mobile, right on desktop). */}
+      <div className="px-6 md:px-12 lg:pl-16 lg:pr-28 pt-8 pb-24 sm:py-10 flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+        <p className="text-[14px] leading-[20px] font-light text-white/90">
+          {copyright?.prefix || '©'} {currentYear} {displayBrand}
+        </p>
+        {bottomLinks.length > 0 && (
+          <div className="flex items-center justify-center flex-wrap gap-x-4 gap-y-2">
+            {bottomLinks.map(link => (
+              <a
+                key={link.name}
+                href={link.url}
+                className="text-[14px] leading-[1.2] text-white hover:text-white/70 transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </footer>
   )
