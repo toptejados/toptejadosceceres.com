@@ -366,71 +366,73 @@ export default function ZonasPageContent({ site, data, recentProjects = [], home
       </div>
 
       {/* ── Recent Projects ── */}
-      <section
-        ref={projectsRef}
-        className="py-24 px-6 bg-white border-t border-slate-100"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-            <div>
-              <h3
-                className="mb-3 font-['Inter',sans-serif] text-[rgb(0,0,0)]"
-                style={{ fontWeight: 500, fontSize: '16px', lineHeight: '16px' }}
-              >
-                Proyectos
-              </h3>
-              <h2
-                className="font-['Inter',sans-serif] text-[rgb(0,0,0)]"
-                style={{ fontWeight: 500, fontSize: '32px', lineHeight: '32px' }}
-              >
-                Conoce nuestros proyectos más recientes
-              </h2>
+      {recentProjects.length > 0 && (
+        <section
+          ref={projectsRef}
+          className="py-24 px-6 bg-white border-t border-slate-100"
+        >
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div>
+                <h3
+                  className="mb-3 font-['Inter',sans-serif] text-[rgb(0,0,0)]"
+                  style={{ fontWeight: 500, fontSize: '16px', lineHeight: '16px' }}
+                >
+                  Proyectos
+                </h3>
+                <h2
+                  className="font-['Inter',sans-serif] text-[rgb(0,0,0)]"
+                  style={{ fontWeight: 500, fontSize: '32px', lineHeight: '32px' }}
+                >
+                  Conoce nuestros proyectos más recientes
+                </h2>
+              </div>
+              <a href="/proyectos" className="text-[14px] font-bold text-[#5492f7] hover:text-[#3b82f6] pb-1 flex items-center gap-2">
+                Ver todos los proyectos <span className="text-[16px]">&rarr;</span>
+              </a>
             </div>
-            <a href="/proyectos" className="text-[14px] font-bold text-[#5492f7] hover:text-[#3b82f6] pb-1 flex items-center gap-2">
-              Ver todos los proyectos <span className="text-[16px]">&rarr;</span>
-            </a>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {recentProjects.map((p, i) => {
+                const coverImgUrl = p.coverImg?.url ? optimizedImageUrl(p.coverImg.url.startsWith('http') ? p.coverImg.url : `${apiUrl || ''}${p.coverImg.url}`) : null;
+
+                let descText = '';
+                if (typeof p.description === 'string') {
+                  descText = p.description;
+                } else if (Array.isArray(p.description)) {
+                  descText = p.description.map(block => block.children?.map(c => c.text).join('')).join(' ');
+                }
+
+                return (
+                  <a href={`/proyectos/${p.slug}`} key={i} className="group cursor-pointer flex flex-col gap-[16px]">
+                    <div className="rounded-[20px] overflow-hidden relative mb-2 aspect-[370/529] bg-slate-100">
+                      {coverImgUrl && (
+                        <img
+                          src={coverImgUrl}
+                          alt={p.coverImgAlt || p.title}
+                          width={p.coverImg?.width || 800}
+                          height={p.coverImg?.height || 600}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      )}
+                    </div>
+                    <h3 className="text-[20px] font-bold text-[#11181C] leading-[1.3] group-hover:text-[#3b82f6] transition-colors">
+                      {p.title}
+                    </h3>
+                    <p className="text-[14px] text-slate-500 line-clamp-3 leading-[1.6]">
+                      {descText}
+                    </p>
+                    <div className="inline-flex items-center text-[13px] font-semibold text-[#24274D] mt-1">
+                      Leer más <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {recentProjects.map((p, i) => {
-              const coverImgUrl = p.coverImg?.url ? optimizedImageUrl(p.coverImg.url.startsWith('http') ? p.coverImg.url : `${apiUrl || ''}${p.coverImg.url}`) : null;
-
-              let descText = '';
-              if (typeof p.description === 'string') {
-                descText = p.description;
-              } else if (Array.isArray(p.description)) {
-                descText = p.description.map(block => block.children?.map(c => c.text).join('')).join(' ');
-              }
-
-              return (
-                <a href={`/proyectos/${p.slug}`} key={i} className="group cursor-pointer flex flex-col gap-[16px]">
-                  <div className="rounded-[20px] overflow-hidden relative mb-2 aspect-[370/529] bg-slate-100">
-                    {coverImgUrl && (
-                      <img
-                        src={coverImgUrl}
-                        alt={p.coverImgAlt || p.title}
-                        width={p.coverImg?.width || 800}
-                        height={p.coverImg?.height || 600}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      />
-                    )}
-                  </div>
-                  <h3 className="text-[20px] font-bold text-[#11181C] leading-[1.3] group-hover:text-[#3b82f6] transition-colors">
-                    {p.title}
-                  </h3>
-                  <p className="text-[14px] text-slate-500 line-clamp-3 leading-[1.6]">
-                    {descText}
-                  </p>
-                  <div className="inline-flex items-center text-[13px] font-semibold text-[#24274D] mt-1">
-                    Leer más <svg className="ml-1.5 w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
-                  </div>
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ── Testimonials ── */}
       <section
