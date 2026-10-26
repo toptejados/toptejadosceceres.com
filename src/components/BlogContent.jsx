@@ -2,31 +2,6 @@ import { useState, useEffect, useRef, useMemo } from 'react'
 import blogPageData from '../data/blogPage.json'
 import { initialsAvatar } from './HomeContent.jsx'
 import { optimizedImageUrl } from '../lib/site.js'
-import { renderBlocks, headingsOf, slugifyHeading } from '../lib/blocks.jsx'
-
-// Tailwind classes matching this page's existing inline-styled article body
-// typography (font-size 15.5/#374151/line-height 1.8), used by the Blocks
-// renderer so `content` articles look consistent with the legacy `sections`
-// path below.
-const ARTICLE_CLASSES = {
-  paragraph: 'text-[15.5px] text-[#374151] leading-[1.8] mb-3',
-  heading: 'text-[20px] font-bold text-[#0f172a] mb-3 leading-[1.3]',
-  list: 'mb-3 pl-6 text-[15.5px] text-[#374151] leading-[1.8]',
-  quote: 'border-l-4 border-[#e5421d] pl-4 italic text-[#374151] my-4',
-  link: 'text-[#e5421d] underline hover:no-underline',
-}
-
-// Anchor ids for the sticky TOC must be unique and stable across re-renders —
-// build them once from a post's heading text, disambiguating repeats.
-function buildHeadingIds(content) {
-  const seen = new Map()
-  return headingsOf(content).map(text => {
-    const base = slugifyHeading(text)
-    const n = (seen.get(base) ?? 0) + 1
-    seen.set(base, n)
-    return n === 1 ? base : `${base}-${n}`
-  })
-}
 
 // ─────────────────────────────────────────────────────────────
 // RICH BLOG DATA (passed dynamically via props, falls back to JSON)
@@ -254,16 +229,13 @@ function TableOfContents({ sections, activeId }) {
 // BLOG DETAIL VIEW
 // ─────────────────────────────────────────────────────────────
 function BlogDetail({ post, onBack }) {
-  // New posts write `content` (Strapi Blocks, WordPress-like editor); old
-  // un-migrated posts have no content and fall back to the legacy `sections`
-  // rendering below — nothing published under the old flow breaks.
-  const usingContent = Array.isArray(post.content) && post.content.length > 0
-  const headingIds = useMemo(() => (usingContent ? buildHeadingIds(post.content) : []), [post, usingContent])
-  const tocSections = useMemo(() => (
-    usingContent
-      ? headingsOf(post.content).map((heading, i) => ({ id: headingIds[i], heading }))
-      : post.sections
-  ), [post, usingContent, headingIds])
+  // Posts write `contentHtml` (Strapi TipTap editor, supports tables); posts
+  // without it fall back to the legacy `sections` rendering below.
+  const usingHtml = Boolean(post.contentHtml)
+  const tocSections = useMemo(
+    () => (usingHtml ? post.contentHtmlHeadings ?? [] : post.sections),
+    [post, usingHtml]
+  )
 
   const [activeId, setActiveId] = useState(tocSections[0]?.id || '')
   const [shareHover, setShareHover] = useState(null)
@@ -458,11 +430,8 @@ function BlogDetail({ post, onBack }) {
 
         {/* RIGHT: Article body */}
         <article style={{ minWidth: 0 }}>
-          {usingContent ? (
-            renderBlocks(post.content, {
-              classNames: ARTICLE_CLASSES,
-              headingId: (_text, i) => headingIds[i],
-            })
+          {usingHtml ? (
+            <div className="blog-html" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           ) : post.sections.map((section, i) => (
             <div key={section.id}>
               <div
@@ -533,6 +502,28 @@ function BlogDetail({ post, onBack }) {
 
       {/* Mobile Styles */}
       <style>{`
+        .blog-html { font-size: 15.5px; color: #374151; line-height: 1.8; }
+        .blog-html p { margin: 0 0 12px; }
+        .blog-html h2, .blog-html h3, .blog-html h4 { color: #0f172a; font-weight: 700; line-height: 1.3; margin: 28px 0 12px; scroll-margin-top: 110px; }
+        .blog-html h2 { font-size: 20px; }
+        .blog-html h3 { font-size: 18px; }
+        .blog-html h4 { font-size: 16px; }
+        .blog-html ul, .blog-html ol { margin: 0 0 12px; padding-left: 24px; }
+        .blog-html ul { list-style: disc; }
+        .blog-html ol { list-style: decimal; }
+        .blog-html li { margin-bottom: 6px; }
+        .blog-html a { color: #e5421d; text-decoration: underline; }
+        .blog-html blockquote { border-left: 4px solid #e5421d; padding-left: 16px; font-style: italic; margin: 16px 0; }
+        .blog-html img { max-width: 100%; height: auto; border-radius: 12px; display: block; }
+        .blog-html figure { margin: 20px 0; }
+        .blog-html figure.table, .blog-html figure.image { max-width: 100%; }
+        .blog-html figcaption, .blog-html caption { font-size: 13px; color: #94a3b8; margin-top: 8px; text-align: center; caption-side: bottom; }
+        .blog-html table { border-collapse: collapse; width: 100%; margin: 20px 0; font-size: 14.5px; display: block; overflow-x: auto; }
+        .blog-html figure.table > table { display: table; }
+        .blog-html th, .blog-html td { border: 1px solid #e2e8f0; padding: 10px 14px; text-align: left; vertical-align: top; }
+        .blog-html th p, .blog-html td p { margin: 0; }
+        .blog-html th { background: #f1f5f9; color: #0f172a; font-weight: 700; }
+        .blog-html tbody tr:nth-child(even) td { background: #f8fafc; }
         @media (max-width: 768px) {
           .blog-detail-grid {
             display: flex !important;
