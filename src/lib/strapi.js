@@ -1,4 +1,5 @@
 import { blogDateSortKey, toIsoDate } from './dates.js'
+import { prepareHtmlContent } from './html-content.js'
 
 const STRAPI_URL = import.meta.env.STRAPI_URL || (typeof process !== 'undefined' ? process.env.STRAPI_URL : null) || 'https://strapi.digiagency.net'
 const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN || (typeof process !== 'undefined' ? process.env.STRAPI_TOKEN : null)
@@ -595,6 +596,7 @@ export async function getBlogs() {
     }
 
     const ogImageUrl = post.ogImage?.url ? resolveUrl(post.ogImage.url) : null
+    const contentHtml = prepareHtmlContent(post.contentHtml, resolveUrl)
 
     return {
       id: post.id,
@@ -610,7 +612,9 @@ export async function getBlogs() {
       coverImg,
       coverImgWidth,
       coverImgHeight,
-      content: post.content ?? [],
+      // CKEditor body (supports tables). Wins over `content` when filled.
+      contentHtml: contentHtml.html,
+      contentHtmlHeadings: contentHtml.headings,
       tags: post.tags ?? null,
       sections,
       inlineImage,
