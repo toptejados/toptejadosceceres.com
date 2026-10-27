@@ -51,6 +51,11 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+    // sanitize-html is CJS and require()s htmlparser2, which can resolve to an
+    // ESM-only version. Bundling it lets Vite handle the interop at build time.
+    // Build only: in dev the module runner can't evaluate bundled CJS deps
+    // ("exports is not defined" from cookie), so dev keeps the default.
+    ssr: process.argv.includes('build') ? { noExternal: true } : {},
     resolve: {
       alias: {
         'react': 'preact/compat',
